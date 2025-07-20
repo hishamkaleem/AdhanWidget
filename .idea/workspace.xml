@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AndroidLayouts">
+    <shared>
+      <config />
+    </shared>
+    <layouts>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/xml/my_app_widget_info.xml">
+        <config>
+          <theme>@android:style/Theme.Material.Light</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/xml/widget_info.xml">
+        <config>
+          <theme>@android:style/Theme.Material.Light</theme>
+        </config>
+      </layout>
+    </layouts>
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="839597b4-db01-4a33-b3d2-c97a0a915cc3" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/ProjectSites/ece243.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/ProjectSites/ece295.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/ProjectSites/voltReg.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/WorkSites/esp2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/WorkSites/jitterware.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/WorkSites/werl.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/Hisham Kaleem - Resume.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/css/main.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/img/CertImg/fusion.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/img/CertImg/mongo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/img/CertImg/sql.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/img/ProjectImg/295PCB.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/img/ProjectImg/5VReg.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/img/ProjectImg/ece243.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/img/ProjectImg/nba.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/img/ProjectImg/pokemon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/img/SiteImages/243Img/de1soc.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/img/SiteImages/295Img/295 PCB.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/img/SiteImages/295Img/295PCB.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/img/SiteImages/295Img/295_Layout.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/img/SiteImages/295Img/diagram.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/img/SiteImages/295Img/lpf.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/img/SiteImages/295Img/radio.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/img/SiteImages/5VImg/Hisham Kaleem - pcb task.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/img/SiteImages/5VImg/regulator.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/img/SiteImages/5VImg/schem.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/img/SiteImages/JitterImg/Jitterware Keyboard.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/img/SiteImages/JitterImg/PCB.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/img/SiteImages/JitterImg/Schematic.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/img/SiteImages/JitterImg/schem.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/img/SiteImages/WerlImg/CAD Model.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/img/SiteImages/WerlImg/CAD Model2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/img/SiteImages/WerlImg/UNERD Poster.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/img/SiteImages/WerlImg/WERL CAD Files.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/img/SiteImages/WerlImg/device.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/img/SiteImages/WerlImg/unerd.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/img/SiteImages/esp2Img/ESPII CDS.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/img/SiteImages/esp2Img/backend.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/img/SiteImages/esp2Img/diagram.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/img/SiteImages/esp2Img/ppt.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/img/SiteImages/esp2Img/pptw.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/img/SiteImages/esp2Img/script.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/img/WorkImg/PCB.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/img/WorkImg/art.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/img/WorkImg/esp1.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/img/WorkImg/esp2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/img/WorkImg/testing.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/img/WorkImg/utat.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/img/homebg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/img/pfp.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/img/pfp.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/img/sitecon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/js/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/vendor/aos/aos.cjs.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/vendor/aos/aos.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/vendor/aos/aos.esm.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/vendor/aos/aos.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/vendor/aos/aos.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/vendor/bootstrap-icons/bootstrap-icons.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/vendor/bootstrap-icons/bootstrap-icons.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/vendor/bootstrap-icons/bootstrap-icons.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/vendor/bootstrap-icons/bootstrap-icons.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/vendor/bootstrap-icons/fonts/bootstrap-icons.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/vendor/bootstrap-icons/fonts/bootstrap-icons.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/vendor/bootstrap/css/bootstrap-grid.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/vendor/bootstrap/css/bootstrap-grid.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/vendor/bootstrap/css/bootstrap-grid.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/vendor/bootstrap/css/bootstrap-grid.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/vendor/bootstrap/css/bootstrap-grid.rtl.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/vendor/bootstrap/css/bootstrap-grid.rtl.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/vendor/bootstrap/css/bootstrap-grid.rtl.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/vendor/bootstrap/css/bootstrap-grid.rtl.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/vendor/bootstrap/css/bootstrap-reboot.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/vendor/bootstrap/css/bootstrap-reboot.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/vendor/bootstrap/css/bootstrap-reboot.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/vendor/bootstrap/css/bootstrap-reboot.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/vendor/bootstrap/css/bootstrap-reboot.rtl.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/vendor/bootstrap/css/bootstrap-reboot.rtl.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/vendor/bootstrap/css/bootstrap-reboot.rtl.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/vendor/bootstrap/css/bootstrap-reboot.rtl.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/vendor/bootstrap/css/bootstrap-utilities.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/vendor/bootstrap/css/bootstrap-utilities.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/vendor/bootstrap/css/bootstrap-utilities.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/vendor/bootstrap/css/bootstrap-utilities.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/vendor/bootstrap/css/bootstrap-utilities.rtl.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/vendor/bootstrap/css/bootstrap-utilities.rtl.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/vendor/bootstrap/css/bootstrap-utilities.rtl.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/vendor/bootstrap/css/bootstrap-utilities.rtl.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/vendor/bootstrap/css/bootstrap.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/vendor/bootstrap/css/bootstrap.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/vendor/bootstrap/css/bootstrap.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/vendor/bootstrap/css/bootstrap.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/vendor/bootstrap/css/bootstrap.rtl.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/vendor/bootstrap/css/bootstrap.rtl.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/vendor/bootstrap/css/bootstrap.rtl.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/vendor/bootstrap/css/bootstrap.rtl.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/vendor/bootstrap/css/prb.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/vendor/bootstrap/js/bootstrap.bundle.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/vendor/bootstrap/js/bootstrap.bundle.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/vendor/bootstrap/js/bootstrap.bundle.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/vendor/bootstrap/js/bootstrap.bundle.min.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/vendor/bootstrap/js/bootstrap.esm.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/vendor/bootstrap/js/bootstrap.esm.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/vendor/bootstrap/js/bootstrap.esm.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/vendor/bootstrap/js/bootstrap.esm.min.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/vendor/bootstrap/js/bootstrap.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/vendor/bootstrap/js/bootstrap.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/vendor/bootstrap/js/bootstrap.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/vendor/bootstrap/js/bootstrap.min.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/vendor/glightbox/css/glightbox.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/vendor/glightbox/css/glightbox.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/vendor/glightbox/js/glightbox.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/vendor/glightbox/js/glightbox.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/vendor/imagesloaded/imagesloaded.pkgd.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/vendor/isotope-layout/isotope.pkgd.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/vendor/isotope-layout/isotope.pkgd.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/vendor/purecounter/purecounter_vanilla.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/vendor/purecounter/purecounter_vanilla.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/vendor/swiper/swiper-bundle.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/vendor/swiper/swiper-bundle.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/vendor/swiper/swiper-bundle.min.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/vendor/typed.js/typed.cjs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/vendor/typed.js/typed.cjs.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/vendor/typed.js/typed.module.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/vendor/typed.js/typed.module.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/vendor/typed.js/typed.umd.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/vendor/typed.js/typed.umd.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/assets/vendor/waypoints/noframework.waypoints.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PortfolioSite/index.html" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[DeviceId(pluginId=LocalEmulator, isTemplate=false, identifier=path=C:\Users\hisha\.android\avd\Pixel_7_Pro.avd)]" />
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Kotlin Class" />
+        <option value="resourceFile" />
+        <option value="Kotlin File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "hishamkaleem"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/hishamkaleem/AdhanWidget.git",
+    "accountId": "cab3d1d6-27a5-4633-b780-df7124a6b83c"
+  }
+}]]></component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 5
+}]]></component>
+  <component name="ProjectId" id="309Xbm9KCPChWOZOQmBFx54aB7m" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Android App.app.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
+      <module name="AdhanWidget.app" />
+      <option name="ANDROID_RUN_CONFIGURATION_SCHEMA_VERSION" value="1" />
+      <option name="DEPLOY" value="true" />
+      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
+      <option name="DEPLOY_AS_INSTANT" value="false" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ALL_USERS" value="false" />
+      <option name="ALWAYS_INSTALL_WITH_PM" value="false" />
+      <option name="ALLOW_ASSUME_VERIFIED" value="false" />
+      <option name="CLEAR_APP_STORAGE" value="false" />
+      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="RESTORE_ENABLED" value="false" />
+      <option name="RESTORE_FILE" value="" />
+      <option name="RESTORE_FRESH_INSTALL_ONLY" value="false" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
+      </Hybrid>
+      <Java>
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
+      </Java>
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+        <option name="DEBUG_SANDBOX_SDK" value="false" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Java/Kotlin Method Sample (legacy)" />
+        <option name="STARTUP_NATIVE_MEMORY_PROFILING_ENABLED" value="false" />
+        <option name="NATIVE_MEMORY_SAMPLE_RATE_BYTES" value="2048" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <option name="SEARCH_ACTIVITY_IN_GLOBAL_SCOPE" value="false" />
+      <option name="SKIP_ACTIVITY_VALIDATION" value="false" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="839597b4-db01-4a33-b3d2-c97a0a915cc3" name="Changes" comment="" />
+      <created>1753040835998</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1753040835998</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="play_dynamic_filters_status">
+    <option name="appIdToCheckInfo">
+      <map>
+        <entry key="com.example.adhanwidget">
+          <value>
+            <CheckInfo lastCheckTimestamp="1753042876803" />
+          </value>
+        </entry>
+        <entry key="com.example.adhanwidget.test">
+          <value>
+            <CheckInfo lastCheckTimestamp="1753042876802" />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
