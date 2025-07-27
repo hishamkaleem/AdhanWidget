@@ -59,4 +59,5 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
     implementation("androidx.glance:glance-appwidget:1.1.0")
+    // The Adhan dependency has been removed since only static prayer calculation is used.
 }
