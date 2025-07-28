@@ -1,4 +1,4 @@
-package com.widgetfiles
+package com.widgetfiles.widget
 
 import android.content.Context
 import androidx.compose.runtime.Composable

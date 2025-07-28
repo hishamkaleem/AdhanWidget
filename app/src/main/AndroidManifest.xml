@@ -7,7 +7,7 @@
         android:supportsRtl="true">
 
         <activity
-            android:name=".MainActivity"
+            android:name="com.widgetfiles.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -15,7 +15,7 @@
             </intent-filter>
         </activity>
 
-        <receiver android:name="com.widgetfiles.MyAppWidgetReceiver"
+        <receiver android:name="com.widgetfiles.widget.MyAppWidgetReceiver"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
