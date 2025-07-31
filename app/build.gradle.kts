@@ -6,16 +6,27 @@ plugins {
 
 android {
     namespace = "com.widgetfiles.adhanwidget"
-    compileSdk = 36
+    compileSdk = 36 // or use 33 if 36 causes issues
 
     defaultConfig {
-        applicationId = "com.example.adhanwidget"
+        applicationId = "com.widgetfiles.adhanwidget"
         minSdk = 24
         targetSdk = 36
         versionCode = 1
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        // ✅ Enable NDK build via CMake
+        externalNativeBuild {
+            cmake {
+                cppFlags += "-std=c++17"
+            }
+        }
+
+        ndk {
+            abiFilters += listOf("armeabi-v7a", "arm64-v8a")
+        }
     }
 
     buildTypes {
@@ -27,18 +38,35 @@ android {
             )
         }
     }
+
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
+
     kotlinOptions {
-        jvmTarget = "11"
+        jvmTarget = "17"
     }
+
     buildFeatures {
         compose = true
     }
+
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.15"
+    }
+
+    // ✅ Hook in the CMake build
+    externalNativeBuild {
+        cmake {
+            path = file("src/main/cpp/CMakeLists.txt")
+        }
+    }
+
+    sourceSets {
+        getByName("main") {
+            jniLibs.srcDir("src/main/jniLibs")
+        }
     }
 }
 
@@ -51,6 +79,13 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+
+    // Glance + location
+    implementation("androidx.glance:glance-appwidget:1.1.1")
+    implementation("com.google.android.gms:play-services-base:18.7.2")
+    implementation("com.google.android.gms:play-services-location:21.3.0")
+
+    // Testing
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -58,8 +93,4 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
-    implementation("androidx.glance:glance-appwidget:1.1.1")
-    implementation("com.google.android.gms:play-services-base:18.7.2")
-    implementation("com.google.android.gms:play-services-location:21.3.0")
-    // The Adhan dependency has been removed since only static prayer calculation is used.
 }
