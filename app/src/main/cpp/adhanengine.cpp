@@ -1,9 +1,15 @@
 #include <jni.h>
+#include <string>
 
-extern "C"{
-    JNIEXPORT jfloat JNICALL
-    Java_com_widgetfiles_native_NativeEngine_getQiblaDirection(
-        JNIEnv* env, jobject, jdouble lat, jdouble lon) {
-        return 1;
+std::string WidgetMessage() {
+    return "Sample Message";
+}
+
+extern "C" {
+JNIEXPORT jstring JNICALL
+Java_com_widgetfiles_Native_NativeEngine_WidgetMessage(
+        JNIEnv* env, jobject /* this */) {
+    std::string message = WidgetMessage();
+    return env->NewStringUTF(message.c_str());
     }
 }

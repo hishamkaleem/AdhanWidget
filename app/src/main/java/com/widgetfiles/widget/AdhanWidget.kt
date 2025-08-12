@@ -11,10 +11,13 @@ import androidx.glance.text.Text
 import androidx.glance.text.TextStyle
 import androidx.glance.text.FontWeight
 import androidx.glance.unit.ColorProvider
+import androidx.glance.color.ColorProvider as DayNightColorProvider
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.widgetfiles.Native.NativeEngine.WidgetMessage
 import java.util.Calendar
+
 
 class MyAppWidget : GlanceAppWidget() {
     data class Prayer(val name: String, val time: String, val icon: String)
@@ -31,44 +34,66 @@ class MyAppWidget : GlanceAppWidget() {
 
     override suspend fun provideGlance(context: Context, id: androidx.glance.GlanceId) {
         provideContent {
-            WidgetUI(getPrayerTimesSmart(context))
+            val cppMessage = WidgetMessage()
+            WidgetUI(getPrayerTimesSmart(context), cppMessage)
         }
     }
 
     @Composable
-    private fun WidgetUI(prayers: List<Prayer>) {
+    private fun WidgetUI(prayers: List<Prayer>, cppMessage: String) {
         val (current, next) = getCurrentAndNextPrayer(prayers)
         val display = next
-        Row(
+
+        Column(
             modifier = GlanceModifier
                 .fillMaxSize()
                 .background(getDynamicColor())
                 .padding(horizontal = 24.dp, vertical = 14.dp),
             verticalAlignment = Alignment.CenterVertically,
-            horizontalAlignment = Alignment.Start
+            horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
-                text = display.icon,
-                style = TextStyle(fontSize = 42.sp, color = ColorProvider(Color.White)),
-                modifier = GlanceModifier.padding(end = 16.dp)
-            )
-            Text(
-                text = display.name,
+                text = cppMessage,
                 style = TextStyle(
-                    color = ColorProvider(Color.White),
-                    fontSize = 30.sp,
-                    fontWeight = FontWeight.Bold
+                    fontSize = 16.sp,
+                    color = DayNightColorProvider(day = Color.Yellow, night = Color.Yellow)
                 ),
-                modifier = GlanceModifier.padding(end = 18.dp)
+                modifier = GlanceModifier.padding(bottom = 8.dp)
             )
-            Text(
-                text = display.time,
-                style = TextStyle(
-                    color = ColorProvider(Color(0xFFB3C6FF)),
-                    fontSize = 28.sp,
-                    fontWeight = FontWeight.Bold
+
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalAlignment = Alignment.Start
+            ) {
+                Text(
+                    text = display.icon,
+                    style = TextStyle(
+                        fontSize = 42.sp,
+                        color = DayNightColorProvider(day = Color.White, night = Color.White)
+                    ),
+                    modifier = GlanceModifier.padding(end = 16.dp)
                 )
-            )
+                Text(
+                    text = display.name,
+                    style = TextStyle(
+                        color = DayNightColorProvider(day = Color.White, night = Color.White),
+                        fontSize = 30.sp,
+                        fontWeight = FontWeight.Bold
+                    ),
+                    modifier = GlanceModifier.padding(end = 18.dp)
+                )
+                Text(
+                    text = display.time,
+                    style = TextStyle(
+                        color = DayNightColorProvider(
+                            day = Color(0xFFB3C6FF),
+                            night = Color(0xFFB3C6FF)
+                        ),
+                        fontSize = 28.sp,
+                        fontWeight = FontWeight.Bold
+                    )
+                )
+            }
         }
     }
 
@@ -93,10 +118,10 @@ class MyAppWidget : GlanceAppWidget() {
     private fun getDynamicColor(): ColorProvider {
         val hour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY)
         return when (hour) {
-            in 5..11 -> ColorProvider(Color(0xFF81D4FA))
-            in 12..16 -> ColorProvider(Color(0xFFFFF176))
-            in 17..19 -> ColorProvider(Color(0xFFFF8A65))
-            else -> ColorProvider(Color(0xFF21242A))
+            in 5..11 -> DayNightColorProvider(day = Color(0xFF81D4FA), night = Color(0xFF81D4FA))
+            in 12..16 -> DayNightColorProvider(day = Color(0xFFFFF176), night = Color(0xFFFFF176))
+            in 17..19 -> DayNightColorProvider(day = Color(0xFFFF8A65), night = Color(0xFFFF8A65))
+            else -> DayNightColorProvider(day = Color(0xFF21242A), night = Color(0xFF21242A))
         }
     }
 }
