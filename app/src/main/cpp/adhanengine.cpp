@@ -8,7 +8,7 @@ std::string WidgetMessage() {
 extern "C" {
 JNIEXPORT jstring JNICALL
 Java_com_widgetfiles_Native_NativeEngine_WidgetMessage(
-        JNIEnv* env, jobject /* this */) {
+        JNIEnv* env, jobject) {
     std::string message = WidgetMessage();
     return env->NewStringUTF(message.c_str());
     }

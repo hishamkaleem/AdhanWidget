@@ -6,7 +6,7 @@ plugins {
 
 android {
     namespace = "com.widgetfiles.adhanwidget"
-    compileSdk = 36 // or use 33 if 36 causes issues
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.widgetfiles.adhanwidget"
@@ -17,7 +17,6 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
-        // ✅ Enable NDK build via CMake
         externalNativeBuild {
             cmake {
                 cppFlags += "-std=c++17"
@@ -52,7 +51,6 @@ android {
         kotlinCompilerExtensionVersion = "1.5.15"
     }
 
-    // ✅ Hook in the CMake build
     externalNativeBuild {
         cmake {
             path = file("src/main/cpp/CMakeLists.txt")
@@ -76,12 +74,10 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
 
-    // Glance + location
     implementation("androidx.glance:glance-appwidget:1.1.1")
     implementation("com.google.android.gms:play-services-base:18.7.2")
     implementation("com.google.android.gms:play-services-location:21.3.0")
-
-    // Testing
+    
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
