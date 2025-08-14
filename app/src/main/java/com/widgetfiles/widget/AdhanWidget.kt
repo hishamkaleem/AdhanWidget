@@ -15,7 +15,7 @@ import androidx.glance.color.ColorProvider as DayNightColorProvider
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.widgetfiles.Native.NativeEngine.WidgetMessage
+//import com.widgetfiles.Native.NativeEngine.WidgetMessage
 import java.util.Calendar
 
 
@@ -34,8 +34,8 @@ class MyAppWidget : GlanceAppWidget() {
 
     override suspend fun provideGlance(context: Context, id: androidx.glance.GlanceId) {
         provideContent {
-            val cppMessage = WidgetMessage()
-            WidgetUI(getPrayerTimesSmart(context), cppMessage)
+            //val cppMessage = WidgetMessage()
+            //WidgetUI(getPrayerTimesSmart(context), cppMessage)
         }
     }
 
