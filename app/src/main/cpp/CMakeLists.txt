@@ -13,5 +13,9 @@ target_include_directories(cppscript PRIVATE
         ${CMAKE_CURRENT_SOURCE_DIR}/prayertimes
 )
 
+if(ANDROID)
+    target_link_options(cppscript PRIVATE "-Wl,-z,max-page-size=16384")
+endif()
+
 find_library(log-lib log)
 target_link_libraries(cppscript ${log-lib})
