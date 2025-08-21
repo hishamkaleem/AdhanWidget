@@ -29,6 +29,12 @@ namespace isna {
                         int utcOffsetMinutes,
                         const Config& cfg = Config{});
 
-    std::string hhmm_local(int64_t epochMs);
+    struct PrayerDisplay {
+        std::string prayerName;
+        int64_t timeDiff;
+        std::string timeRemaining;
+    };
+
+    PrayerDisplay widgetInfo(const PrayerTimes& pt, int off);
 
 } // namespace isna

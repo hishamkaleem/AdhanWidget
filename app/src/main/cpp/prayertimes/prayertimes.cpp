@@ -2,6 +2,9 @@
 #include <cmath>
 #include <algorithm>
 #include <cstdio>
+#include <string>
+#include <chrono>
+#include <sstream>
 
 namespace isna {
 
@@ -110,14 +113,55 @@ namespace isna {
         };
     }
 
-    std::string hhmm_local(int64_t ms){
-        const int64_t totalMin = ms / 60000ll;
-        const int64_t hh = (totalMin / 60) % 24;
-        const int64_t mm = totalMin % 60;
-        char buf[6];
-        std::snprintf(buf, sizeof(buf), "%02lld:%02lld",
-                      (long long)hh, (long long)mm);
-        return std::string(buf);
+    //***********************************************************************************
+
+    //Functions/struct for time remaining calculations
+
+    static inline int64_t localTime(int utcOffsetMinutes) { //Capturing current time in epoch
+        using namespace std::chrono;
+        int64_t ms = duration_cast<milliseconds>(system_clock::now().time_since_epoch()).count();
+        return ms + int64_t(utcOffsetMinutes) * 60000ll;
+    }
+
+    static inline std::string formatDiff(int64_t diffMs) { //Formatting difference in ms
+        if (diffMs <= 59'999) return "Now";
+        int hours = int(diffMs / 3'600'000);
+        int mins  = int((diffMs % 3'600'000) / 60'000);
+        std::ostringstream oss; oss << hours << "h " << mins << "m";
+        return oss.str();
+    }
+
+    //Timing Calculations
+    PrayerDisplay widgetInfo(PrayerTimes pt, int off){
+        int64_t timeNow = localTime(off);
+        std::string currentPrayer;
+        int64_t next;
+        if (timeNow < pt.fajr){
+            currentPrayer = "Isha";
+            next = pt.fajr;
+        }
+        else if (timeNow < pt.dhuhr){
+            currentPrayer = "Fajr";
+            next = pt.dhuhr;
+        }
+        else if (timeNow < pt.asr){
+            currentPrayer = "Dhuhr";
+            next = pt.asr;
+        }
+        else if (timeNow < pt.maghrib){
+            currentPrayer = "Asr";
+            next = pt.maghrib;
+        }
+        else if (timeNow < pt.isha){
+            currentPrayer = "Maghrib";
+            next = pt.isha;
+        }
+        else{ //if still same day
+            currentPrayer = "Isha";
+            next = pt.fajr + 24ll*60*60*1000;
+        }
+
+        return {currentPrayer, next-timeNow, formatDiff(next - timeNow)};
     }
 
 } // namespace isna
