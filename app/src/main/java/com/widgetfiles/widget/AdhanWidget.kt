@@ -15,7 +15,7 @@ import androidx.glance.color.ColorProvider as DayNightColorProvider
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.widgetfiles.Native.NativeEngine.computeISNA
+import com.widgetfiles.Native.NativeEngine.widgetInfoDisplay
 import java.util.Calendar
 
 

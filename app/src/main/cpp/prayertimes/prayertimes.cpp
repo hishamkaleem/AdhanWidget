@@ -83,14 +83,13 @@ namespace isna {
 
     PrayerTimes compute(int year, int month, int day,
                         double latDeg, double lngDeg, int utcOffsetMinutes,
-                        const Config& cfg)
+                        const Config& cfg) //Main function for prayer calculations
     {
         const int64_t baseUtcMs = utc_midnight_ms(year, month, day);
 
         double fajr=5, sunrise=6, dhuhr=12, asr=13, sunset=18, maghrib=18, isha=18, midnight=24;
 
         fajr    = angle_time(cfg.fajrAngleDeg, fajr, -1, baseUtcMs, latDeg, lngDeg);
-        sunrise = angle_time(cfg.horizonDeg,   sunrise, -1, baseUtcMs, latDeg, lngDeg);
         dhuhr   = midday(dhuhr, baseUtcMs, lngDeg);
         {
             const double a = asr_angle(cfg.asrShadow, asr, baseUtcMs, latDeg, lngDeg);
@@ -108,14 +107,14 @@ namespace isna {
         };
 
         return PrayerTimes{
-                toLocal(fajr), toLocal(sunrise), toLocal(dhuhr), toLocal(asr),
-                toLocal(sunset), toLocal(maghrib), toLocal(isha), toLocal(midnight)
+                toLocal(fajr), toLocal(dhuhr), toLocal(asr),
+                toLocal(maghrib), toLocal(isha)
         };
     }
 
     //***********************************************************************************
 
-    //Functions/struct for time remaining calculations
+    //Functions for widget display calculations
 
     static inline int64_t localTime(int utcOffsetMinutes) { //Capturing current time in epoch
         using namespace std::chrono;
@@ -131,37 +130,67 @@ namespace isna {
         return oss.str();
     }
 
-    //Timing Calculations
-    PrayerDisplay widgetInfo(PrayerTimes pt, int off){
+    static const char* iconFor(const std::string& name) {
+        if (name == "Fajr")    return "🌄";
+        if (name == "Dhuhr")   return "☀️";
+        if (name == "Asr")     return "🕓";
+        if (name == "Maghrib") return "🌇";
+        if (name == "Isha")    return "🌙";
+        return "🕒";
+    }
+
+    static int colorCalc(int64_t time, int64_t current, int64_t next){ //Function for bg color calculation
+
+    }
+
+    //**************************************************************************************************************
+
+    //Main display function for widget
+
+    PrayerDisplay widgetInfo(int off){
         int64_t timeNow = localTime(off);
         std::string currentPrayer;
-        int64_t next;
+        int64_t current, next;
+        //PrayerTimes pt = compute()
+        PrayerTimes pt = {};
         if (timeNow < pt.fajr){
             currentPrayer = "Isha";
+            current = pt.isha;
             next = pt.fajr;
         }
         else if (timeNow < pt.dhuhr){
             currentPrayer = "Fajr";
+            current = pt.fajr;
             next = pt.dhuhr;
         }
         else if (timeNow < pt.asr){
             currentPrayer = "Dhuhr";
+            current = pt.dhuhr;
             next = pt.asr;
         }
         else if (timeNow < pt.maghrib){
             currentPrayer = "Asr";
+            current = pt.asr;
             next = pt.maghrib;
         }
         else if (timeNow < pt.isha){
             currentPrayer = "Maghrib";
+            current = pt.maghrib;
             next = pt.isha;
         }
         else{ //if still same day
             currentPrayer = "Isha";
+            current = pt.isha;
             next = pt.fajr + 24ll*60*60*1000;
         }
 
-        return {currentPrayer, next-timeNow, formatDiff(next - timeNow)};
+        const char* prayerIcon = iconFor(currentPrayer); //icon
+
+        const std::string timeRemaining = formatDiff(timeNow - next); //time remaining
+
+        const int bgColor = colorCalc(timeNow, current, next); //color
+
+        return {currentPrayer, timeRemaining, prayerIcon, bgColor};
     }
 
 } // namespace isna

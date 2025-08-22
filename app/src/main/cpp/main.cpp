@@ -1,26 +1,32 @@
 #include <jni.h>
-#include <array>
 #include "prayertimes/prayertimes.h"
 
 extern "C"
-JNIEXPORT jlongArray JNICALL
-Java_com_widgetfiles_Native_NativeEngine_computeISNA(
+JNIEXPORT jobject JNICALL
+Java_com_widgetfiles_Native_NativeEngine_widgetInfoDisplay(
         JNIEnv* env, jclass,
         jint year, jint month, jint day,
         jdouble lat, jdouble lng,
         jint utcOffsetMinutes) {
 
-    isna::PrayerTimes pt = isna::compute(
-            (int)year, (int)month, (int)day,
-            (double)lat, (double)lng,
-            (int)utcOffsetMinutes
+    isna::PrayerDisplay disp = isna::widgetInfo((int)utcOffsetMinutes);
+
+    jclass cls = env->FindClass("com/widgetfiles/widget/PrayerDisplay");
+
+    jmethodID ctor = env->GetMethodID(
+            cls,
+            "<init>",
+            "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V"
     );
 
-    std::array<jlong,8> out = {
-            pt.fajr, pt.sunrise, pt.dhuhr, pt.asr,
-            pt.sunset, pt.maghrib, pt.isha, pt.midnight
-    };
-    jlongArray arr = env->NewLongArray((jsize)out.size());
-    env->SetLongArrayRegion(arr, 0, (jsize)out.size(), out.data());
-    return arr;
+    jstring jName  = env->NewStringUTF(disp.prayerName.c_str());
+    jstring jTime  = env->NewStringUTF(disp.timeRemaining.c_str());
+    jstring jIcon  = env->NewStringUTF(disp.icon);
+
+    jobject prayerObj = env->NewObject(
+            cls, ctor,
+            jName, jTime, jIcon, (jint)disp.bgColor
+    );
+
+    return prayerObj;
 }

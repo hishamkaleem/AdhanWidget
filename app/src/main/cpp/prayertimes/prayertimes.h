@@ -6,13 +6,10 @@ namespace isna {
 
     struct PrayerTimes {
         int64_t fajr;
-        int64_t sunrise;
         int64_t dhuhr;
         int64_t asr;
-        int64_t sunset;
         int64_t maghrib;
         int64_t isha;
-        int64_t midnight;
     };
 
     struct Config {
@@ -31,10 +28,14 @@ namespace isna {
 
     struct PrayerDisplay {
         std::string prayerName;
-        int64_t timeDiff;
         std::string timeRemaining;
+        const char* icon;
+        const int bgColor;
+
     };
 
-    PrayerDisplay widgetInfo(const PrayerTimes& pt, int off);
+    PrayerDisplay widgetInfo(int off);
+
+    static const char* iconFor(const std::string& name);
 
 } // namespace isna
