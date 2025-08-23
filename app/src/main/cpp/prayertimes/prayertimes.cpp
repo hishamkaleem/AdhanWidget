@@ -140,9 +140,32 @@ namespace isna {
         return "🕒";
     }
 
-    static int colorCalc(int64_t time, int64_t current, int64_t next){ //Function for bg color calculation
-        return 0xFF00FF00;
+    static int colorCalc(int64_t time, int64_t current, int64_t next) {
+        const int64_t prayerDiff = next - current;
+
+        int64_t timeLeft = next - time;
+        if (timeLeft < 0) timeLeft = 0;
+
+        double pct = double(timeLeft) / double(prayerDiff);
+        if (pct > 1.0) pct = 1.0;
+        if (pct < 0.0) pct = 0.0;
+
+        int r, g, b = 0;
+
+        if (pct >= 0.5) {
+            double t = (1.0 - pct) / 0.5;
+            r = int(0   + t * (255 - 0));
+            g = int(255 - t * (255 - 165));
+        }
+        else {
+            double t = (0.5 - pct) / 0.5;
+            r = 255;
+            g = int(165 - t * (165 - 0));
+        }
+
+        return (0xFF << 24) | (r << 16) | (g << 8) | b;
     }
+
 
     //**************************************************************************************************************
 
@@ -153,7 +176,7 @@ namespace isna {
         std::string currentPrayer;
         int64_t current, next;
         //PrayerTimes pt = compute()
-        PrayerTimes pt = {1755856200000, 1755883200000, 1755899400000, 1755908400000, 1755915600000};
+        PrayerTimes pt = {1755853620000, 1755883200000, 1755899400000, 1755908400000, 1755912960000};
         if (timeNow < pt.fajr){
             currentPrayer = "Isha";
             current = pt.isha;
