@@ -1,4 +1,4 @@
-package com.widgetfiles.widget
+package com.widgetfiles.widget.data
 
 data class PrayerDisplay(
     val prayerName: String,

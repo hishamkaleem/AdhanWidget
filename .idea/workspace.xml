@@ -16,7 +16,8 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="839597b4-db01-4a33-b3d2-c97a0a915cc3" name="Changes" comment="added struct/functions for time display">
+    <list default="true" id="839597b4-db01-4a33-b3d2-c97a0a915cc3" name="Changes" comment="modified main widgetinfo function">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/widgetfiles/widget/data/PrayerDisplay.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.13/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.13/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.13/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.13/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.13/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.13/fileHashes/fileHashes.bin" afterDir="false" />
@@ -27,12 +28,9 @@
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/ChatHistory_schema_v2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ChatHistory_schema_v2.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/cpp/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/cpp/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/cpp/prayertimes/prayertimes.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/cpp/prayertimes/prayertimes.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/cpp/prayertimes/prayertimes.h" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/cpp/prayertimes/prayertimes.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/widgetfiles/Native/NativeEngine.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/widgetfiles/Native/NativeEngine.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/widgetfiles/widget/AdhanWidget.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/widgetfiles/widget/AdhanWidget.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/widgetfiles/widget/WidgetState.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/widgetfiles/widget/PrayerDisplay.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/widgetfiles/widget/PrayerDisplay.kt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../PortfolioSite/ProjectSites/ece243.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../PortfolioSite/ProjectSites/ece295.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../PortfolioSite/ProjectSites/voltReg.html" beforeDir="false" />
@@ -259,6 +257,9 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\hisha\OneDrive\Documents\AdhanWidget\app\src\main\java\com\widgetfiles\widget" />
     </key>
+    <key name="K2MoveDeclarationsDialog.RECENT_PACKAGE_KEY">
+      <recent name="com.widgetfiles.widget.data" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
@@ -422,7 +423,15 @@
       <option name="project" value="LOCAL" />
       <updated>1755742347841</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="modified main widgetinfo function">
+      <option name="closed" value="true" />
+      <created>1755892529294</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1755892529294</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -446,7 +455,8 @@
     <MESSAGE value="added c++ files for offline prayer calculations" />
     <MESSAGE value="fixed page byte misalignment" />
     <MESSAGE value="added struct/functions for time display" />
-    <option name="LAST_COMMIT_MESSAGE" value="added struct/functions for time display" />
+    <MESSAGE value="modified main widgetinfo function" />
+    <option name="LAST_COMMIT_MESSAGE" value="modified main widgetinfo function" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

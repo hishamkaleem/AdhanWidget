@@ -1,13 +1,10 @@
 package com.widgetfiles.Native
 
-import com.widgetfiles.widget.PrayerDisplay
+import com.widgetfiles.widget.data.PrayerDisplay
 
 object NativeEngine {
     init { System.loadLibrary("cppscript") }
-
     external fun widgetInfoDisplay(
-        year: Int, month: Int, day: Int,
-        lat: Double, lng: Double,
         utcOffsetMinutes: Int
     ): PrayerDisplay
 }
