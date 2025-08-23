@@ -11,7 +11,7 @@ Java_com_widgetfiles_Native_NativeEngine_widgetInfoDisplay(
 
     isna::PrayerDisplay disp = isna::widgetInfo((int)utcOffsetMinutes);
 
-    jclass cls = env->FindClass("com/widgetfiles/widget/PrayerDisplay");
+    jclass cls = env->FindClass("com/widgetfiles/widget/data/PrayerDisplay");
 
     jmethodID ctor = env->GetMethodID(
             cls,

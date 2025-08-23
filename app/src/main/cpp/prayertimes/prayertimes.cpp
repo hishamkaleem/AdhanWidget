@@ -5,6 +5,7 @@
 #include <string>
 #include <chrono>
 #include <sstream>
+#include <iostream>
 
 namespace isna {
 
@@ -140,7 +141,7 @@ namespace isna {
     }
 
     static int colorCalc(int64_t time, int64_t current, int64_t next){ //Function for bg color calculation
-
+        return 0xFF00FF00;
     }
 
     //**************************************************************************************************************
@@ -152,7 +153,7 @@ namespace isna {
         std::string currentPrayer;
         int64_t current, next;
         //PrayerTimes pt = compute()
-        PrayerTimes pt = {};
+        PrayerTimes pt = {1755856200000, 1755883200000, 1755899400000, 1755908400000, 1755915600000};
         if (timeNow < pt.fajr){
             currentPrayer = "Isha";
             current = pt.isha;
@@ -186,12 +187,11 @@ namespace isna {
 
         const char* prayerIcon = iconFor(currentPrayer); //icon
 
-        const std::string timeRemaining = formatDiff(timeNow - next); //time remaining
+        const std::string timeRemaining = formatDiff(next-timeNow); //time remaining
 
         const int bgColor = colorCalc(timeNow, current, next); //color
 
         return {currentPrayer, timeRemaining, prayerIcon, bgColor};
     }
-
 } // namespace isna
 

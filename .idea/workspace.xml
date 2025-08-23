@@ -16,8 +16,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="839597b4-db01-4a33-b3d2-c97a0a915cc3" name="Changes" comment="modified main widgetinfo function">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/widgetfiles/widget/data/PrayerDisplay.kt" afterDir="false" />
+    <list default="true" id="839597b4-db01-4a33-b3d2-c97a0a915cc3" name="Changes" comment="working test case">
       <change beforePath="$PROJECT_DIR$/.gradle/8.13/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.13/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.13/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.13/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.13/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.13/fileHashes/fileHashes.bin" afterDir="false" />
@@ -28,9 +27,8 @@
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/ChatHistory_schema_v2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ChatHistory_schema_v2.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/widgetfiles/Native/NativeEngine.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/widgetfiles/Native/NativeEngine.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/widgetfiles/widget/AdhanWidget.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/widgetfiles/widget/AdhanWidget.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/widgetfiles/widget/PrayerDisplay.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/cpp/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/cpp/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/cpp/prayertimes/prayertimes.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/cpp/prayertimes/prayertimes.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../PortfolioSite/ProjectSites/ece243.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../PortfolioSite/ProjectSites/ece295.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../PortfolioSite/ProjectSites/voltReg.html" beforeDir="false" />
@@ -431,7 +429,15 @@
       <option name="project" value="LOCAL" />
       <updated>1755892529294</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="reconfigured main kotlin file">
+      <option name="closed" value="true" />
+      <created>1755911647897</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1755911647897</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -456,7 +462,9 @@
     <MESSAGE value="fixed page byte misalignment" />
     <MESSAGE value="added struct/functions for time display" />
     <MESSAGE value="modified main widgetinfo function" />
-    <option name="LAST_COMMIT_MESSAGE" value="modified main widgetinfo function" />
+    <MESSAGE value="reconfigured main kotlin file" />
+    <MESSAGE value="working test case" />
+    <option name="LAST_COMMIT_MESSAGE" value="working test case" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
