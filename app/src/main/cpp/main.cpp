@@ -9,7 +9,7 @@ Java_com_widgetfiles_Native_NativeEngine_widgetInfoDisplay(
         jdouble lat, jdouble lng,
         jint utcOffsetMinutes) {
 
-    isna::PrayerDisplay disp = isna::widgetInfo((int)utcOffsetMinutes);
+    isna::PrayerDisplay disp = isna::widgetInfo();
 
     jclass cls = env->FindClass("com/widgetfiles/widget/data/PrayerDisplay");
 

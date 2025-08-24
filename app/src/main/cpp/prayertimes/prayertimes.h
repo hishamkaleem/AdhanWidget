@@ -16,7 +16,7 @@ namespace isna {
         double fajrAngleDeg = 15.0;
         double ishaAngleDeg = 15.0;
         double horizonDeg   = 0.833;
-        double asrShadow    = 1.0;    // Standard
+        double asrShadow    = 1.0;
         enum HighLat { NightMiddle } highLat = NightMiddle;
         bool roundNearestMinute = true;
     };
@@ -34,8 +34,6 @@ namespace isna {
 
     };
 
-    PrayerDisplay widgetInfo(int off);
-
-    static const char* iconFor(const std::string& name);
+    PrayerDisplay widgetInfo();
 
 } // namespace isna

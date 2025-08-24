@@ -8,7 +8,6 @@
 #include <iostream>
 
 namespace isna {
-
     static inline double d2r(double d){ return d*M_PI/180.0; }
     static inline double r2d(double r){ return r*180.0/M_PI; }
     static inline double pmod(double a, double b){ return std::fmod(std::fmod(a,b)+b,b); }
@@ -76,51 +75,51 @@ namespace isna {
 
     static void high_lat_adjust(double sunrise, double sunset, double &fajr, double &isha, double &maghrib){
         const double night = 24.0 + sunrise - sunset;
-        const double portion = 0.5 * night; // NightMiddle
+        const double portion = 0.5 * night; // Night middle method
         if (std::isnan(fajr) || (sunrise - fajr) > portion) fajr = sunrise - portion;
         if (std::isnan(isha) || (isha - sunset) > portion) isha = sunset + portion;
-        if (std::isnan(maghrib)) maghrib = sunset; // ISNA: maghrib at sunset
+        if (std::isnan(maghrib)) maghrib = sunset; // Maghrib at sunset
     }
 
-    PrayerTimes compute(int year, int month, int day,
-                        double latDeg, double lngDeg, int utcOffsetMinutes,
-                        const Config& cfg) //Main function for prayer calculations
+    PrayerTimes computeUTC(int year, int month, int day,
+                           double latDeg, double lngDeg,
+                           const Config& cfg)
     {
         const int64_t baseUtcMs = utc_midnight_ms(year, month, day);
 
-        double fajr=5, sunrise=6, dhuhr=12, asr=13, sunset=18, maghrib=18, isha=18, midnight=24;
+        double fajr=5, sunrise=6, dhuhr=12, asr=13, sunset=18, maghrib=18, isha=18;
 
-        fajr    = angle_time(cfg.fajrAngleDeg, fajr, -1, baseUtcMs, latDeg, lngDeg);
+        fajr    = angle_time(cfg.fajrAngleDeg, fajr,   -1, baseUtcMs, latDeg, lngDeg);
+        sunrise = angle_time(cfg.horizonDeg,   sunrise, -1, baseUtcMs, latDeg, lngDeg);
         dhuhr   = midday(dhuhr, baseUtcMs, lngDeg);
         {
             const double a = asr_angle(cfg.asrShadow, asr, baseUtcMs, latDeg, lngDeg);
             asr = angle_time(a, asr, +1, baseUtcMs, latDeg, lngDeg);
         }
         sunset  = angle_time(cfg.horizonDeg,   sunset, +1, baseUtcMs, latDeg, lngDeg);
-        maghrib = sunset; // ISNA: no extra minutes
-        isha    = angle_time(cfg.ishaAngleDeg, isha, +1, baseUtcMs, latDeg, lngDeg);
-        midnight= midday(midnight, baseUtcMs, lngDeg) + 12.0;
+        maghrib = sunset;
+        isha    = angle_time(cfg.ishaAngleDeg, isha,   +1, baseUtcMs, latDeg, lngDeg);
 
         high_lat_adjust(sunrise, sunset, fajr, isha, maghrib);
 
-        auto toLocal = [&](double hour)->int64_t{
-            return hour_to_epoch_ms(hour, baseUtcMs, lngDeg) + int64_t(utcOffsetMinutes)*60000ll;
+        auto toUtcMs = [&](double hour)->int64_t {
+            return hour_to_epoch_ms(hour, baseUtcMs, lngDeg);
         };
 
         return PrayerTimes{
-                toLocal(fajr), toLocal(dhuhr), toLocal(asr),
-                toLocal(maghrib), toLocal(isha)
+                toUtcMs(fajr), toUtcMs(dhuhr), toUtcMs(asr),
+                toUtcMs(maghrib), toUtcMs(isha)
         };
     }
+
 
     //***********************************************************************************
 
     //Functions for widget display calculations
 
-    static inline int64_t localTime(int utcOffsetMinutes) { //Capturing current time in epoch
+    static inline int64_t nowUtc() {
         using namespace std::chrono;
-        int64_t ms = duration_cast<milliseconds>(system_clock::now().time_since_epoch()).count();
-        return ms + int64_t(utcOffsetMinutes) * 60000ll;
+        return duration_cast<milliseconds>(system_clock::now().time_since_epoch()).count();
     }
 
     static inline std::string formatDiff(int64_t diffMs) { //Formatting difference in ms
@@ -171,12 +170,18 @@ namespace isna {
 
     //Main display function for widget
 
-    PrayerDisplay widgetInfo(int off){
-        int64_t timeNow = localTime(off);
+    PrayerDisplay widgetInfo(){
+        int64_t timeNow = nowUtc();
         std::string currentPrayer;
         int64_t current, next;
         //PrayerTimes pt = compute()
-        PrayerTimes pt = {1755853620000, 1755883200000, 1755899400000, 1755908400000, 1755912960000};
+        PrayerTimes pt = {
+                1756026420000ll,
+                1756056000000ll,
+                1756069620000ll,
+                1756080360000ll,
+                1756085520000ll
+        };
         if (timeNow < pt.fajr){
             currentPrayer = "Isha";
             current = pt.isha;
