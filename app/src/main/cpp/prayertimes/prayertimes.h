@@ -21,19 +21,17 @@ namespace isna {
         bool roundNearestMinute = true;
     };
 
-    PrayerTimes compute(int year, int month, int day,
-                        double latDeg, double lngDeg,
-                        int utcOffsetMinutes,
-                        const Config& cfg = Config{});
-
     struct PrayerDisplay {
         std::string prayerName;
         std::string timeRemaining;
         const char* icon;
         const int bgColor;
-
     };
 
-    PrayerDisplay widgetInfo();
+    PrayerTimes computeUTC(int year, int month, int day,
+                           double latDeg, double lngDeg,
+                           const Config& cfg);
+
+    PrayerDisplay widgetInfo(PrayerTimes pt);
 
 } // namespace isna

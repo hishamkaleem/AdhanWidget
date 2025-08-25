@@ -170,18 +170,10 @@ namespace isna {
 
     //Main display function for widget
 
-    PrayerDisplay widgetInfo(){
+    PrayerDisplay widgetInfo(PrayerTimes pt){
         int64_t timeNow = nowUtc();
         std::string currentPrayer;
         int64_t current, next;
-        //PrayerTimes pt = compute()
-        PrayerTimes pt = {
-                1756026420000ll,
-                1756056000000ll,
-                1756069620000ll,
-                1756080360000ll,
-                1756085520000ll
-        };
         if (timeNow < pt.fajr){
             currentPrayer = "Isha";
             current = pt.isha;
