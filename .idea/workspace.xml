@@ -5,6 +5,11 @@
       <config />
     </shared>
     <layouts>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/xml/appwidget_placeholder.xml">
+        <config>
+          <theme>@android:style/Theme.Material.Light</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/xml/my_app_widget_info.xml">
         <config>
           <theme>@android:style/Theme.Material.Light</theme>
@@ -17,7 +22,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="839597b4-db01-4a33-b3d2-c97a0a915cc3" name="Changes" comment="standardising to UTC">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/widgetfiles/widget/update/MinRecieve.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/widgetfiles/widget/update/MinTick.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/xml/appwidget_placeholder.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.13/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.13/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.13/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.13/checksums/md5-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.13/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.13/checksums/sha1-checksums.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.13/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.13/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.13/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.13/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.13/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.13/fileHashes/fileHashes.bin" afterDir="false" />
@@ -29,10 +39,9 @@
       <change beforePath="$PROJECT_DIR$/.idea/ChatHistory_schema_v2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ChatHistory_schema_v2.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/cpp/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/cpp/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/cpp/prayertimes/prayertimes.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/cpp/prayertimes/prayertimes.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/cpp/prayertimes/prayertimes.h" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/cpp/prayertimes/prayertimes.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/libs.versions.toml" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/libs.versions.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/widgetfiles/widget/WidgetReciever.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/widgetfiles/widget/WidgetReciever.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/xml/my_app_widget_info.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/xml/my_app_widget_info.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../PortfolioSite/ProjectSites/ece243.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../PortfolioSite/ProjectSites/ece295.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../PortfolioSite/ProjectSites/voltReg.html" beforeDir="false" />
@@ -197,11 +206,11 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="resourceFile" />
         <option value="Kotlin Object" />
         <option value="Kotlin Class" />
         <option value="CMakeLists.txt" />
         <option value="Kotlin File" />
+        <option value="resourceFile" />
       </list>
     </option>
   </component>
@@ -457,7 +466,15 @@
       <option name="project" value="LOCAL" />
       <updated>1755919558442</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="standardising to UTC">
+      <option name="closed" value="true" />
+      <created>1756073648695</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1756073648695</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -516,12 +533,12 @@
         </entry>
         <entry key="com.widgetfiles.adhanwidget">
           <value>
-            <CheckInfo lastCheckTimestamp="1755738082089" />
+            <CheckInfo lastCheckTimestamp="1756088595837" />
           </value>
         </entry>
         <entry key="com.widgetfiles.adhanwidget.test">
           <value>
-            <CheckInfo lastCheckTimestamp="1755738082088" />
+            <CheckInfo lastCheckTimestamp="1756088595837" />
           </value>
         </entry>
       </map>
