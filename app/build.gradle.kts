@@ -6,12 +6,12 @@ plugins {
 
 android {
     namespace = "com.widgetfiles.adhanwidget"
-    compileSdk = 36
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.widgetfiles.adhanwidget"
-        minSdk = 26
-        targetSdk = 36
+        minSdk = 35
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
