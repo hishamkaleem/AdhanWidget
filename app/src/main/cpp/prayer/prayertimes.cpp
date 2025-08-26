@@ -24,15 +24,6 @@ namespace disp {
         return oss.str();
     }
 
-    static const char* iconFor(const std::string& name) {
-        if (name == "Fajr")    return "🌄";
-        if (name == "Dhuhr")   return "☀️";
-        if (name == "Asr")     return "🕓";
-        if (name == "Maghrib") return "🌇";
-        if (name == "Isha")    return "🌙";
-        return "🕒";
-    }
-
     static int colorCalc(int64_t time, int64_t current, int64_t next) {
         const int64_t prayerDiff = next - current;
 
@@ -97,13 +88,11 @@ namespace disp {
             next = pt.fajr + 24ll*60*60*1000;
         }
 
-        const char* prayerIcon = iconFor(currentPrayer); //icon
-
         const std::string timeRemaining = formatDiff(next-timeNow); //time remaining
 
         const int bgColor = colorCalc(timeNow, current, next); //color
 
-        return {currentPrayer, timeRemaining, prayerIcon, bgColor};
+        return {currentPrayer, timeRemaining, bgColor};
     }
 } // namespace disp
 

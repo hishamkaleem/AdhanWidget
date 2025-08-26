@@ -13,8 +13,8 @@ add_library(cppscript SHARED
 )
 
 target_include_directories(cppscript PRIVATE
-        ${SRC_DIR}/prayer            # for prayertimes.h
-        ${SRC_DIR}/prayer/prayercalc # for prayercalc.h
+        ${SRC_DIR}/prayer
+        ${SRC_DIR}/prayer/prayercalc
 )
 
 if(ANDROID)

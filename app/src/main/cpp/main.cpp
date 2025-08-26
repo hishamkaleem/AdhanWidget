@@ -29,16 +29,15 @@ Java_com_widgetfiles_Native_NativeEngine_widgetInfoDisplay(
     jmethodID ctor = env->GetMethodID(
             cls,
             "<init>",
-            "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V"
+            "(Ljava/lang/String;Ljava/lang/String;I)V"
     );
 
     jstring jName  = env->NewStringUTF(disp.prayerName.c_str());
     jstring jTime  = env->NewStringUTF(disp.timeRemaining.c_str());
-    jstring jIcon  = env->NewStringUTF(disp.icon);
 
     jobject prayerObj = env->NewObject(
             cls, ctor,
-            jName, jTime, jIcon, (jint)disp.bgColor
+            jName, jTime, (jint)disp.bgColor
     );
 
     return prayerObj;

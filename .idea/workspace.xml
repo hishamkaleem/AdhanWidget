@@ -15,6 +15,31 @@
           <theme>@android:style/Theme.Material.Light</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/drawable/moon.xml">
+        <config>
+          <theme>@android:style/Theme.Material.Light</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/drawable/sun.xml">
+        <config>
+          <theme>@android:style/Theme.Material.Light</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/drawable/sunrise.xml">
+        <config>
+          <theme>@android:style/Theme.Material.Light</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/drawable/sunset.xml">
+        <config>
+          <theme>@android:style/Theme.Material.Light</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/drawable/timer.xml">
+        <config>
+          <theme>@android:style/Theme.Material.Light</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/xml/appwidget_placeholder.xml">
         <config>
           <theme>@android:style/Theme.Material.Light</theme>
@@ -31,9 +56,12 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="839597b4-db01-4a33-b3d2-c97a0a915cc3" name="Changes" comment="files/functions for location receiving">
-      <change afterPath="$PROJECT_DIR$/app/src/main/cpp/prayer/prayertimes.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/cpp/prayer/prayertimes.h" afterDir="false" />
+    <list default="true" id="839597b4-db01-4a33-b3d2-c97a0a915cc3" name="Changes" comment="working location/offline calcs!">
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/moon.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/sun.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/sunrise.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/sunset.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/timer.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.13/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.13/checksums/checksums.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.13/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.13/checksums/md5-checksums.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.13/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.13/checksums/sha1-checksums.bin" afterDir="false" />
@@ -48,18 +76,10 @@
       <change beforePath="$PROJECT_DIR$/.idea/ChatHistory_schema_v2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ChatHistory_schema_v2.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle.kts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/cpp/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/cpp/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/cpp/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/cpp/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/cpp/prayertimes/prayertimes.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/cpp/prayer/prayercalc/prayercalc.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/cpp/prayertimes/prayertimes.h" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/cpp/prayer/prayercalc/prayercalc.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/widgetfiles/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/widgetfiles/MainActivity.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/widgetfiles/widget/AdhanWidget.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/widgetfiles/widget/AdhanWidget.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/widgetfiles/widget/WidgetReciever.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/widgetfiles/widget/WidgetReciever.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/widgetfiles/widget/location/LocCache.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/widgetfiles/widget/location/LocCache.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/widgetfiles/widget/location/LocRecieve.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/widgetfiles/widget/location/LocRecieve.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/widgetfiles/widget/update/DayRecieve.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/widgetfiles/widget/update/DayRecieve.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/widgetfiles/widget/update/DayTick.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/widgetfiles/widget/update/DayTick.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../PortfolioSite/ProjectSites/ece243.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../PortfolioSite/ProjectSites/ece295.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../PortfolioSite/ProjectSites/voltReg.html" beforeDir="false" />
@@ -226,9 +246,10 @@
       <list>
         <option value="Kotlin Object" />
         <option value="CMakeLists.txt" />
-        <option value="resourceFile" />
-        <option value="Kotlin Class" />
         <option value="Kotlin File" />
+        <option value="resourceFile" />
+        <option value="Class" />
+        <option value="Kotlin Class" />
       </list>
     </option>
   </component>
@@ -284,6 +305,8 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\hisha\OneDrive\Documents\AdhanWidget\app\src\main\res\drawable" />
+      <recent name="C:\Users\hisha\OneDrive\Documents\AdhanWidget\app\src\main\res\drawable\icons" />
       <recent name="C:\Users\hisha\OneDrive\Documents\AdhanWidget\app\src\main\java\com\widgetfiles\widget" />
     </key>
     <key name="K2MoveDeclarationsDialog.RECENT_PACKAGE_KEY">
@@ -508,7 +531,15 @@
       <option name="project" value="LOCAL" />
       <updated>1756156863528</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="working location/offline calcs!">
+      <option name="closed" value="true" />
+      <created>1756172737682</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1756172737682</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -539,7 +570,8 @@
     <MESSAGE value="standardising to UTC" />
     <MESSAGE value="working minute-refresh of widget" />
     <MESSAGE value="files/functions for location receiving" />
-    <option name="LAST_COMMIT_MESSAGE" value="files/functions for location receiving" />
+    <MESSAGE value="working location/offline calcs!" />
+    <option name="LAST_COMMIT_MESSAGE" value="working location/offline calcs!" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -569,12 +601,12 @@
         </entry>
         <entry key="com.widgetfiles.adhanwidget">
           <value>
-            <CheckInfo lastCheckTimestamp="1756088595837" />
+            <CheckInfo lastCheckTimestamp="1756179281430" />
           </value>
         </entry>
         <entry key="com.widgetfiles.adhanwidget.test">
           <value>
-            <CheckInfo lastCheckTimestamp="1756088595837" />
+            <CheckInfo lastCheckTimestamp="1756179281423" />
           </value>
         </entry>
       </map>

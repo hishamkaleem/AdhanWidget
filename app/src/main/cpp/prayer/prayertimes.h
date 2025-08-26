@@ -15,7 +15,6 @@ namespace disp {
     struct PrayerDisplay {
         std::string prayerName;
         std::string timeRemaining;
-        const char* icon;
         const int bgColor;
     };
 
