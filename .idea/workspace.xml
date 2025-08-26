@@ -31,12 +31,9 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="839597b4-db01-4a33-b3d2-c97a0a915cc3" name="Changes" comment="working minute-refresh of widget">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/widgetfiles/widget/data/PrayerTimes.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/widgetfiles/widget/location/LocCache.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/widgetfiles/widget/location/LocRecieve.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/widgetfiles/widget/update/DayRecieve.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/widgetfiles/widget/update/DayTick.kt" afterDir="false" />
+    <list default="true" id="839597b4-db01-4a33-b3d2-c97a0a915cc3" name="Changes" comment="files/functions for location receiving">
+      <change afterPath="$PROJECT_DIR$/app/src/main/cpp/prayer/prayertimes.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/cpp/prayer/prayertimes.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.13/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.13/checksums/checksums.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.13/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.13/checksums/md5-checksums.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.13/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.13/checksums/sha1-checksums.bin" afterDir="false" />
@@ -51,15 +48,18 @@
       <change beforePath="$PROJECT_DIR$/.idea/ChatHistory_schema_v2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ChatHistory_schema_v2.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle.kts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/cpp/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/cpp/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/cpp/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/cpp/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/cpp/prayertimes/prayertimes.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/cpp/prayertimes/prayertimes.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/cpp/prayertimes/prayertimes.h" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/cpp/prayertimes/prayertimes.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/widgetfiles/Native/NativeEngine.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/widgetfiles/Native/NativeEngine.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/cpp/prayertimes/prayertimes.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/cpp/prayer/prayercalc/prayercalc.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/cpp/prayertimes/prayertimes.h" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/cpp/prayer/prayercalc/prayercalc.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/widgetfiles/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/widgetfiles/MainActivity.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/widgetfiles/widget/AdhanWidget.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/widgetfiles/widget/AdhanWidget.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/widgetfiles/widget/WidgetReciever.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/widgetfiles/widget/WidgetReciever.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/libs.versions.toml" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/libs.versions.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/widgetfiles/widget/location/LocCache.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/widgetfiles/widget/location/LocCache.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/widgetfiles/widget/location/LocRecieve.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/widgetfiles/widget/location/LocRecieve.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/widgetfiles/widget/update/DayRecieve.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/widgetfiles/widget/update/DayRecieve.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/widgetfiles/widget/update/DayTick.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/widgetfiles/widget/update/DayTick.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../PortfolioSite/ProjectSites/ece243.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../PortfolioSite/ProjectSites/ece295.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../PortfolioSite/ProjectSites/voltReg.html" beforeDir="false" />
@@ -227,8 +227,8 @@
         <option value="Kotlin Object" />
         <option value="CMakeLists.txt" />
         <option value="resourceFile" />
-        <option value="Kotlin File" />
         <option value="Kotlin Class" />
+        <option value="Kotlin File" />
       </list>
     </option>
   </component>
@@ -500,7 +500,15 @@
       <option name="project" value="LOCAL" />
       <updated>1756092787368</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="files/functions for location receiving">
+      <option name="closed" value="true" />
+      <created>1756156863528</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1756156863528</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -530,7 +538,8 @@
     <MESSAGE value="working color function" />
     <MESSAGE value="standardising to UTC" />
     <MESSAGE value="working minute-refresh of widget" />
-    <option name="LAST_COMMIT_MESSAGE" value="working minute-refresh of widget" />
+    <MESSAGE value="files/functions for location receiving" />
+    <option name="LAST_COMMIT_MESSAGE" value="files/functions for location receiving" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

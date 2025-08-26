@@ -4,7 +4,6 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import androidx.glance.appwidget.GlanceAppWidgetManager
-import com.widgetfiles.Native.NativeEngine
 import com.widgetfiles.widget.MyAppWidget
 import com.widgetfiles.widget.location.Prefs
 import com.widgetfiles.widget.location.Prefs.PrayerTimesUtc
@@ -12,8 +11,7 @@ import com.widgetfiles.widget.location.LocationRepo
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import java.time.ZoneId
-import java.time.ZonedDateTime
+
 class DailyRefreshReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent?) {
         if (intent?.action != DailyRefresher.ACTION) return

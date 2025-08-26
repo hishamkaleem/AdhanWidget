@@ -1,17 +1,6 @@
 #include <jni.h>
-#include "prayertimes/prayertimes.h"
-
-
-static double g_lat = 43.6532;
-static double g_lng = -79.3832;
-
-extern "C"
-JNIEXPORT void JNICALL
-Java_com_widgetfiles_Native_NativeEngine_1setLocation(
-        JNIEnv*, jclass, jdouble lat, jdouble lng) {
-    g_lat = lat;
-    g_lng = lng;
-}
+#include "prayer/prayertimes.h"
+#include "prayer/prayercalc/prayercalc.h"
 
 extern "C"
 JNIEXPORT jobject JNICALL
@@ -26,14 +15,14 @@ Java_com_widgetfiles_Native_NativeEngine_widgetInfoDisplay(
     jfieldID mgId = env->GetFieldID(ptCls, "maghrib", "J");
     jfieldID isId = env->GetFieldID(ptCls, "isha",    "J");
 
-    isna::PrayerTimes pt{};
+    disp::PrayerTimes pt{};
     pt.fajr    = static_cast<int64_t>(env->GetLongField(ptObj, fjId));
     pt.dhuhr   = static_cast<int64_t>(env->GetLongField(ptObj, dhId));
     pt.asr     = static_cast<int64_t>(env->GetLongField(ptObj, asId));
     pt.maghrib = static_cast<int64_t>(env->GetLongField(ptObj, mgId));
     pt.isha    = static_cast<int64_t>(env->GetLongField(ptObj, isId));
 
-    isna::PrayerDisplay disp = isna::widgetInfo(pt);
+    disp::PrayerDisplay disp = disp::widgetInfo(pt);
 
     jclass cls = env->FindClass("com/widgetfiles/widget/data/PrayerDisplay");
 

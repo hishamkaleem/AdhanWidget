@@ -1,13 +1,10 @@
 package com.widgetfiles.widget.update
 
-import android.annotation.SuppressLint
 import android.app.AlarmManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.os.Build
-import java.time.ZoneId
-import java.time.ZonedDateTime
 
 object DailyRefresher {
     const val ACTION = "com.widgetfiles.widget.ACTION_DAILY_REFRESH"

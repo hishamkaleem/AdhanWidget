@@ -4,7 +4,6 @@ import android.content.Context
 import androidx.compose.runtime.Composable
 import androidx.glance.GlanceModifier
 import androidx.glance.appwidget.GlanceAppWidget
-import androidx.glance.appwidget.GlanceAppWidgetManager
 import androidx.glance.action.clickable
 import androidx.glance.action.actionStartActivity
 import androidx.glance.appwidget.provideContent
@@ -14,9 +13,6 @@ import androidx.glance.text.Text
 import androidx.glance.text.TextStyle
 import androidx.glance.text.FontWeight
 import androidx.glance.unit.ColorProvider
-import androidx.glance.Image
-import androidx.glance.ImageProvider
-import androidx.glance.action.actionStartActivity
 import androidx.glance.color.ColorProvider as DayNightColorProvider
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
@@ -25,7 +21,6 @@ import com.widgetfiles.Native.NativeEngine
 import com.widgetfiles.widget.data.PrayerDisplay
 import com.widgetfiles.widget.data.PrayerTimes
 import com.widgetfiles.widget.location.Prefs
-import com.widgetfiles.MainActivity
 
 class MyAppWidget : GlanceAppWidget() {
 

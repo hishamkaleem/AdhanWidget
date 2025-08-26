@@ -1,21 +1,24 @@
 cmake_minimum_required(VERSION 3.22.1)
-project(cppscript)
+project(cppscript LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+set(SRC_DIR ${CMAKE_CURRENT_SOURCE_DIR})
+
 add_library(cppscript SHARED
-        main.cpp
-        prayertimes/prayertimes.cpp
+        ${SRC_DIR}/main.cpp
+        ${SRC_DIR}/prayer/prayercalc/prayercalc.cpp
+        ${SRC_DIR}/prayer/prayertimes.cpp
 )
 
 target_include_directories(cppscript PRIVATE
-        ${CMAKE_CURRENT_SOURCE_DIR}/prayertimes
+        ${SRC_DIR}/prayer            # for prayertimes.h
+        ${SRC_DIR}/prayer/prayercalc # for prayercalc.h
 )
 
 if(ANDROID)
+    # Android-only stuff
+    target_link_libraries(cppscript PRIVATE log)
     target_link_options(cppscript PRIVATE "-Wl,-z,max-page-size=16384")
 endif()
-
-find_library(log-lib log)
-target_link_libraries(cppscript ${log-lib})

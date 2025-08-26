@@ -1,6 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!-- Permissions -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM"/>
@@ -11,7 +10,6 @@
         android:label="Adhan Widget"
         android:supportsRtl="true">
 
-        <!-- Launcher Activity (permission flow) -->
         <activity
             android:name="com.widgetfiles.MainActivity"
             android:exported="true">
@@ -21,7 +19,6 @@
             </intent-filter>
         </activity>
 
-        <!-- Glance AppWidget provider -->
         <receiver
             android:name="com.widgetfiles.widget.MyAppWidgetReceiver"
             android:exported="false">
@@ -33,7 +30,6 @@
                 android:resource="@xml/my_app_widget_info"/>
         </receiver>
 
-        <!-- Minute ticker (per-minute updates) -->
         <receiver
             android:name="com.widgetfiles.widget.update.MinuteTickReceiver"
             android:exported="false">
@@ -42,7 +38,6 @@
             </intent-filter>
         </receiver>
 
-        <!-- Daily refresh (00:05 local) -->
         <receiver
             android:name="com.widgetfiles.widget.update.DailyRefreshReceiver"
             android:exported="false">

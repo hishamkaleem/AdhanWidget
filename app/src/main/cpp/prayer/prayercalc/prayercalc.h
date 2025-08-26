@@ -1,9 +1,7 @@
-#pragma once
 #include <cstdint>
 #include <string>
 
-namespace isna {
-
+namespace isna{
     struct PrayerTimes {
         int64_t fajr;
         int64_t dhuhr;
@@ -21,17 +19,7 @@ namespace isna {
         bool roundNearestMinute = true;
     };
 
-    struct PrayerDisplay {
-        std::string prayerName;
-        std::string timeRemaining;
-        const char* icon;
-        const int bgColor;
-    };
-
     PrayerTimes computeUTC(int year, int month, int day,
                            double latDeg, double lngDeg,
                            const Config& cfg);
-
-    PrayerDisplay widgetInfo(PrayerTimes pt);
-
-} // namespace isna
+}

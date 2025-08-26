@@ -1,8 +1,6 @@
 package com.widgetfiles.widget.location
 
 import android.content.Context
-import android.location.LocationManager
-import com.google.android.gms.location.LocationServices
 import kotlinx.coroutines.tasks.await
 
 object LocationRepo {
@@ -16,7 +14,6 @@ object LocationRepo {
     suspend fun getLatLng(ctx: Context): Pair<Double, Double>? {
         if (!hasPerm(ctx)) return null
 
-        // Try Fused (works offline)
         try {
             val fused = com.google.android.gms.location.LocationServices.getFusedLocationProviderClient(ctx)
             val token = com.google.android.gms.tasks.CancellationTokenSource()
@@ -28,9 +25,8 @@ object LocationRepo {
             }
             val loc = current ?: fused.lastLocation.await()
             if (loc != null) return loc.latitude to loc.longitude
-        } catch (_: Exception) { /* fall back */ }
+        } catch (_: Exception) {}
 
-        // Fallback: framework LocationManager
         val lm = ctx.getSystemService(Context.LOCATION_SERVICE) as android.location.LocationManager
         val providers = listOf(
             android.location.LocationManager.GPS_PROVIDER,

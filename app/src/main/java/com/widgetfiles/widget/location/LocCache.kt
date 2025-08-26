@@ -1,7 +1,6 @@
 package com.widgetfiles.widget.location
 
 import android.content.Context
-import java.time.LocalDate
 import androidx.core.content.edit
 
 object Prefs {
