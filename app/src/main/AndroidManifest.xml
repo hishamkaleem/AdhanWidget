@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <!-- Permissions -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
 
     <application
         android:allowBackup="true"
@@ -17,35 +18,50 @@
             android:name="com.widgetfiles.MainActivity"
             android:exported="true">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
 
+        <!-- Glance AppWidget provider -->
         <receiver
             android:name="com.widgetfiles.widget.MyAppWidgetReceiver"
             android:exported="false">
             <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
             </intent-filter>
             <meta-data
                 android:name="android.appwidget.provider"
-                android:resource="@xml/my_app_widget_info" />
+                android:resource="@xml/my_app_widget_info"/>
         </receiver>
 
+        <!-- Minute tick -->
         <receiver
             android:name="com.widgetfiles.widget.update.MinuteTickReceiver"
             android:exported="false">
             <intent-filter>
-                <action android:name="com.widgetfiles.widget.ACTION_MINUTE_TICK" />
+                <action android:name="com.widgetfiles.widget.ACTION_MINUTE_TICK"/>
             </intent-filter>
         </receiver>
 
+        <!-- Daily refresh + time changes -->
         <receiver
             android:name="com.widgetfiles.widget.update.DailyRefreshReceiver"
             android:exported="false">
             <intent-filter>
-                <action android:name="com.widgetfiles.widget.ACTION_DAILY_REFRESH" />
+                <action android:name="com.widgetfiles.widget.ACTION_DAILY_REFRESH"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+                <action android:name="android.intent.action.DATE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+
+        <!-- Re-schedule alarms after reboot -->
+        <receiver
+            android:name="com.widgetfiles.widget.update.BootReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
             </intent-filter>
         </receiver>
 

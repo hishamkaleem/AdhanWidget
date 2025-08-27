@@ -8,39 +8,59 @@ import com.widgetfiles.widget.MyAppWidget
 import com.widgetfiles.widget.location.Prefs
 import com.widgetfiles.widget.location.Prefs.PrayerTimesUtc
 import com.widgetfiles.widget.location.LocationRepo
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 
 class DailyRefreshReceiver : BroadcastReceiver() {
+
     override fun onReceive(context: Context, intent: Intent?) {
-        if (intent?.action != DailyRefresher.ACTION) return
+        val accepted = setOf(
+            DailyRefresher.ACTION,
+            Intent.ACTION_TIME_CHANGED,
+            Intent.ACTION_TIMEZONE_CHANGED,
+            Intent.ACTION_DATE_CHANGED
+        )
+        if (intent?.action !in accepted) return
+
         val pending = goAsync()
-        CoroutineScope(Dispatchers.Default).launch {
+        val appCtx = context.applicationContext
+
+        CoroutineScope(SupervisorJob() + Dispatchers.IO).launch {
             try {
-                val need = Prefs.isNewDay(context) || Prefs.readTimes(context) == null
-                if (need) {
-                    val loc = LocationRepo.getLatLng(context)
-                        ?: Prefs.readLocation(context)
-                        ?: (43.6532 to -79.3832) // fallback
+                val mustRecalc =
+                    Prefs.isNewDay(appCtx) ||
+                            Prefs.readTimes(appCtx) == null ||
+                            intent?.action != DailyRefresher.ACTION
+
+                if (mustRecalc) {
+                    val loc = LocationRepo.getLatLng(appCtx)
+                        ?: Prefs.readLocation(appCtx)
+                        ?: (43.6532 to -79.3832) // Toronto fallback
+
                     val zone = java.time.ZoneId.systemDefault()
-                    val now  = java.time.ZonedDateTime.now(zone)
-                    val arr  = com.widgetfiles.Native.NativeEngine.computeUTC(
-                        now.year, now.monthValue, now.dayOfMonth,
-                        loc.first, loc.second,
-                        15.0, 15.0, 0.833, 1.0
-                    )
-                    Prefs.saveLocation(context, loc.first, loc.second)
-                    Prefs.saveTimes(context, PrayerTimesUtc(arr.fajr,arr.dhuhr,arr.asr,arr.maghrib,arr.isha))
-                    Prefs.markToday(context)
+                    val today = java.time.ZonedDateTime.now(zone)
+
+                    runCatching {
+                        val arr = com.widgetfiles.Native.NativeEngine.computeUTC(
+                            today.year, today.monthValue, today.dayOfMonth,
+                            loc.first, loc.second,
+                            15.0, 15.0, 0.833, 1.0
+                        )
+                        Prefs.saveLocation(appCtx, loc.first, loc.second)
+                        Prefs.saveTimes(
+                            appCtx,
+                            PrayerTimesUtc(arr.fajr, arr.dhuhr, arr.asr, arr.maghrib, arr.isha)
+                        )
+                        Prefs.markToday(appCtx)
+                    }
                 }
 
-                val mgr = GlanceAppWidgetManager(context)
+                val mgr = GlanceAppWidgetManager(appCtx)
                 val ids = mgr.getGlanceIds(MyAppWidget::class.java)
                 val widget = MyAppWidget()
-                ids.forEach { widget.update(context, it) }
+                ids.forEach { widget.update(appCtx, it) }
+
             } finally {
-                DailyRefresher.scheduleNext(context)
+                DailyRefresher.scheduleNext(appCtx)
                 pending.finish()
             }
         }

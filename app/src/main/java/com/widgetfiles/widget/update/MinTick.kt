@@ -4,46 +4,48 @@ import android.app.AlarmManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
-import android.os.Build
 
 object MinuteTicker {
     const val ACTION_MINUTE_TICK = "com.widgetfiles.widget.ACTION_MINUTE_TICK"
-    private fun pi(context: Context) = PendingIntent.getBroadcast(
-        context, 0,
-        Intent(context, MinuteTickReceiver::class.java).setAction(ACTION_MINUTE_TICK),
-        PendingIntent.FLAG_UPDATE_CURRENT or
-                (PendingIntent.FLAG_IMMUTABLE)
-    )
+    private const val REQ_CODE = 1001
 
-    fun scheduleNext(context: Context) {
-        val am = context.getSystemService(AlarmManager::class.java)
-        val now = System.currentTimeMillis()
-        val next = now - (now % 60_000L) + 60_000L
-
-        val pending = pi(context)
-
-        //Alarm triggering depending on API version
-        try {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-                if (am.canScheduleExactAlarms()) {
-                    setExactCompat(am, next, pending)
-                } else {
-                    am.setAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, next, pending)
-                }
-            } else {
-                setExactCompat(am, next, pending)
-            }
-        } catch (se: SecurityException) {
-            am.setAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, next, pending)
-        }
+    private fun pendingIntent(context: Context): PendingIntent {
+        val intent = Intent(context, MinuteTickReceiver::class.java)
+            .setAction(ACTION_MINUTE_TICK)
+        return PendingIntent.getBroadcast(
+            context,
+            REQ_CODE,
+            intent,
+            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+        )
     }
 
-    private fun setExactCompat(am: AlarmManager, whenMs: Long, pi: PendingIntent) {
-        am.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, whenMs, pi)
+    fun scheduleNext(context: Context): Long {
+        val am = context.getSystemService(AlarmManager::class.java)
+        val pi = pendingIntent(context)
+
+        am.cancel(pi)
+
+        val now = System.currentTimeMillis()
+        val next = ((now / 60_000L) + 1) * 60_000L
+
+        try {
+            am.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, next, pi)
+        } catch (_: SecurityException) {
+            am.setAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, next, pi)
+        }
+        return next
+    }
+
+    fun nudgeNowAndScheduleNext(context: Context) {
+        context.sendBroadcast(
+            Intent(context, MinuteTickReceiver::class.java).setAction(ACTION_MINUTE_TICK)
+        )
+        scheduleNext(context)
     }
 
     fun cancel(context: Context) {
         val am = context.getSystemService(AlarmManager::class.java)
-        am.cancel(pi(context))
+        am.cancel(pendingIntent(context))
     }
 }
