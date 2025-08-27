@@ -66,7 +66,7 @@ class MainActivity : ComponentActivity() {
             15.0, 15.0, 0.833, 1.0
         )
 
-        Prefs.saveLocation(appCtx, lat, lng)
+        Prefs.saveLocation(appCtx, lat, lng, blocking = true)
         Prefs.saveTimes(appCtx, Prefs.PrayerTimesUtc(arr.fajr, arr.dhuhr, arr.asr, arr.maghrib, arr.isha))
         Prefs.markToday(appCtx)
 

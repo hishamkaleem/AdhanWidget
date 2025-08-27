@@ -86,7 +86,7 @@ class MyAppWidget : GlanceAppWidget() {
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
-                text = "📍",
+                text = "▶",
                 style = TextStyle(
                     fontSize = 40.sp,
                     color = DayNightColorProvider(day = Color.White, night = Color.White)
