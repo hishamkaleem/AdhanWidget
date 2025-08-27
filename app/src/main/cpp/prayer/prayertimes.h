@@ -6,6 +6,7 @@ namespace disp {
 
     struct PrayerTimes {
         int64_t fajr;
+        int64_t sunrise;
         int64_t dhuhr;
         int64_t asr;
         int64_t maghrib;

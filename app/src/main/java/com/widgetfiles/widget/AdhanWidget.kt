@@ -47,6 +47,7 @@ class MyAppWidget : GlanceAppWidget() {
             } else {
                 val pt = PrayerTimes(
                     fajr = cached.fajr,
+                    sunrise = cached.sunrise,
                     dhuhr = cached.dhuhr,
                     asr = cached.asr,
                     maghrib = cached.maghrib,
@@ -58,6 +59,7 @@ class MyAppWidget : GlanceAppWidget() {
                     AllTimesCompactRow(
                         bgArgb = display.bgColor,
                         fajr = cached.fajr,
+                        sunrise = cached.sunrise,
                         dhuhr = cached.dhuhr,
                         asr = cached.asr,
                         maghrib = cached.maghrib,
@@ -104,9 +106,10 @@ class MyAppWidget : GlanceAppWidget() {
 
     fun getPrayerIcon(prayerName: String): Int {
         return when (prayerName.lowercase()) {
-            "fajr" -> R.drawable.sunrise
+            "fajr" -> R.drawable.alarm
+            "sunrise" -> R.drawable.sunrise
             "dhuhr" -> R.drawable.sun
-            "asr" -> R.drawable.timer
+            "asr" -> R.drawable.cloud
             "maghrib" -> R.drawable.sunset
             "isha" -> R.drawable.moon
             else -> R.drawable.sun // fallback
@@ -171,12 +174,13 @@ class MyAppWidget : GlanceAppWidget() {
     @Composable
     private fun AllTimesCompactRow(
         bgArgb: Int,
-        fajr: Long, dhuhr: Long, asr: Long, maghrib: Long, isha: Long
+        fajr: Long, sunrise: Long, dhuhr: Long, asr: Long, maghrib: Long, isha: Long
     ) {
         val items = listOf(
-            Triple("Fajr", R.drawable.sunrise, fajr),
+            Triple("Fajr", R.drawable.alarm, fajr),
+            Triple("Sunrise", R.drawable.sunrise, sunrise),
             Triple("Dhuhr", R.drawable.sun, dhuhr),
-            Triple("Asr", R.drawable.timer, asr),
+            Triple("Asr", R.drawable.cloud, asr),
             Triple("Maghrib", R.drawable.sunset, maghrib),
             Triple("Isha", R.drawable.moon, isha),
         )

@@ -67,7 +67,7 @@ class MainActivity : ComponentActivity() {
         )
 
         Prefs.saveLocation(appCtx, lat, lng, blocking = true)
-        Prefs.saveTimes(appCtx, Prefs.PrayerTimesUtc(arr.fajr, arr.dhuhr, arr.asr, arr.maghrib, arr.isha))
+        Prefs.saveTimes(appCtx, Prefs.PrayerTimesUtc(arr.fajr, arr.sunrise,arr.dhuhr, arr.asr, arr.maghrib, arr.isha))
         Prefs.markToday(appCtx)
 
         val mgr = GlanceAppWidgetManager(appCtx)

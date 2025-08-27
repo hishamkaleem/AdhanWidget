@@ -48,7 +48,7 @@ class DailyRefreshReceiver : BroadcastReceiver() {
                         Prefs.saveLocation(appCtx, loc.first, loc.second)
                         Prefs.saveTimes(
                             appCtx,
-                            PrayerTimesUtc(arr.fajr, arr.dhuhr, arr.asr, arr.maghrib, arr.isha),
+                            PrayerTimesUtc(arr.fajr, arr.sunrise,arr.dhuhr, arr.asr, arr.maghrib, arr.isha),
                             blocking = true
                         )
                         Prefs.markToday(appCtx, blocking = true)

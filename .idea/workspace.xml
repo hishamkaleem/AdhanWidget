@@ -5,6 +5,16 @@
       <config />
     </shared>
     <layouts>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/drawable/alarm.xml">
+        <config>
+          <theme>@android:style/Theme.Material.Light</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/drawable/cloud.xml">
+        <config>
+          <theme>@android:style/Theme.Material.Light</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_launcher_background.xml">
         <config>
           <theme>@android:style/Theme.Material.Light</theme>
@@ -35,11 +45,6 @@
           <theme>@android:style/Theme.Material.Light</theme>
         </config>
       </layout>
-      <layout url="file://$PROJECT_DIR$/app/src/main/res/drawable/timer.xml">
-        <config>
-          <theme>@android:style/Theme.Material.Light</theme>
-        </config>
-      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml">
         <config>
           <theme>@android:style/Theme.Material.Light</theme>
@@ -61,7 +66,9 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="839597b4-db01-4a33-b3d2-c97a0a915cc3" name="Changes" comment="fixed refresh bug">
+    <list default="true" id="839597b4-db01-4a33-b3d2-c97a0a915cc3" name="Changes" comment="fixed bg color and caching bugs">
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/alarm.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/cloud.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.13/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.13/checksums/checksums.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.13/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.13/checksums/md5-checksums.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.13/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.13/checksums/sha1-checksums.bin" afterDir="false" />
@@ -76,11 +83,18 @@
       <change beforePath="$PROJECT_DIR$/.idea/ChatHistory_schema_v2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ChatHistory_schema_v2.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/deploymentTargetSelector.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deploymentTargetSelector.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/cpp/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/cpp/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/cpp/prayer/prayercalc/prayercalc.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/cpp/prayer/prayercalc/prayercalc.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/cpp/prayer/prayercalc/prayercalc.h" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/cpp/prayer/prayercalc/prayercalc.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/cpp/prayer/prayertimes.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/cpp/prayer/prayertimes.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/cpp/prayer/prayertimes.h" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/cpp/prayer/prayertimes.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/widgetfiles/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/widgetfiles/MainActivity.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/widgetfiles/widget/AdhanWidget.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/widgetfiles/widget/AdhanWidget.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/widgetfiles/widget/data/PrayerTimes.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/widgetfiles/widget/data/PrayerTimes.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/widgetfiles/widget/location/LocCache.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/widgetfiles/widget/location/LocCache.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/widgetfiles/widget/update/DayRecieve.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/widgetfiles/widget/update/DayRecieve.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/moon.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/moon.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/timer.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../PortfolioSite/ProjectSites/ece243.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../PortfolioSite/ProjectSites/ece295.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../PortfolioSite/ProjectSites/voltReg.html" beforeDir="false" />
@@ -248,9 +262,9 @@
         <option value="Kotlin Object" />
         <option value="CMakeLists.txt" />
         <option value="Kotlin File" />
-        <option value="resourceFile" />
         <option value="Class" />
         <option value="Kotlin Class" />
+        <option value="resourceFile" />
       </list>
     </option>
   </component>
@@ -563,7 +577,15 @@
       <option name="project" value="LOCAL" />
       <updated>1756266993203</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="fixed bg color and caching bugs">
+      <option name="closed" value="true" />
+      <created>1756268739278</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1756268739278</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -598,7 +620,8 @@
     <MESSAGE value="XML icons + UI Update + Toggle functionality" />
     <MESSAGE value="Changed app icon" />
     <MESSAGE value="fixed refresh bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed refresh bug" />
+    <MESSAGE value="fixed bg color and caching bugs" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed bg color and caching bugs" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

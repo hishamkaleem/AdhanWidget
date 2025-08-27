@@ -10,6 +10,7 @@ Java_com_widgetfiles_Native_NativeEngine_widgetInfoDisplay(
 
     jclass ptCls = env->GetObjectClass(ptObj);
     jfieldID fjId = env->GetFieldID(ptCls, "fajr",    "J");
+    jfieldID snId = env->GetFieldID(ptCls, "sunrise",    "J");
     jfieldID dhId = env->GetFieldID(ptCls, "dhuhr",   "J");
     jfieldID asId = env->GetFieldID(ptCls, "asr",     "J");
     jfieldID mgId = env->GetFieldID(ptCls, "maghrib", "J");
@@ -17,6 +18,7 @@ Java_com_widgetfiles_Native_NativeEngine_widgetInfoDisplay(
 
     disp::PrayerTimes pt{};
     pt.fajr    = static_cast<int64_t>(env->GetLongField(ptObj, fjId));
+    pt.sunrise = static_cast<int64_t>(env->GetLongField(ptObj, snId));
     pt.dhuhr   = static_cast<int64_t>(env->GetLongField(ptObj, dhId));
     pt.asr     = static_cast<int64_t>(env->GetLongField(ptObj, asId));
     pt.maghrib = static_cast<int64_t>(env->GetLongField(ptObj, mgId));
@@ -71,12 +73,13 @@ Java_com_widgetfiles_Native_NativeEngine_computeUTC(
     jclass cls = env->FindClass("com/widgetfiles/widget/data/PrayerTimes");
     if (!cls) return nullptr;
 
-    jmethodID ctor = env->GetMethodID(cls, "<init>", "(JJJJJ)V");
+    jmethodID ctor = env->GetMethodID(cls, "<init>", "(JJJJJJ)V");
     if (!ctor) return nullptr;
 
     jobject obj = env->NewObject(
             cls, ctor,
             static_cast<jlong>(pt.fajr),
+            static_cast<jlong>(pt.sunrise),
             static_cast<jlong>(pt.dhuhr),
             static_cast<jlong>(pt.asr),
             static_cast<jlong>(pt.maghrib),

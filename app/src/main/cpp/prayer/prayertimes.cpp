@@ -61,9 +61,14 @@ namespace disp {
             current = pt.isha - DAY;
             next = pt.fajr;
         }
-        else if (timeNow < pt.dhuhr) {
+        else if (timeNow < pt.sunrise){
             currentPrayer = "Fajr";
             current = pt.fajr;
+            next = pt.sunrise;
+        }
+        else if (timeNow < pt.dhuhr) {
+            currentPrayer = "Sunrise";
+            current = pt.sunrise;
             next = pt.dhuhr;
         }
         else if (timeNow < pt.asr) {

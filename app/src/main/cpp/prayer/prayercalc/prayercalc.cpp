@@ -107,7 +107,7 @@ namespace isna{
         };
 
         return PrayerTimes{
-                toUtcMs(fajr), toUtcMs(dhuhr), toUtcMs(asr),
+                toUtcMs(fajr), toUtcMs(sunrise),toUtcMs(dhuhr), toUtcMs(asr),
                 toUtcMs(maghrib), toUtcMs(isha)
         };
     }

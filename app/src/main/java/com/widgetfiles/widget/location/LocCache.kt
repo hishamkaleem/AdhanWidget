@@ -31,15 +31,16 @@ object Prefs {
         sp(ctx).getString(YMD, null) != java.time.LocalDate.now().toString()
 
     data class PrayerTimesUtc(
-        val fajr: Long, val dhuhr: Long, val asr: Long, val maghrib: Long, val isha: Long
+        val fajr: Long, val sunrise: Long, val dhuhr: Long, val asr: Long, val maghrib: Long, val isha: Long
     )
 
-    private const val FJ = "pt_fajr"; private const val DH = "pt_dhuhr"
+    private const val FJ = "pt_fajr"; private const val SN = "pt_sunrise"; private const val DH = "pt_dhuhr"
     private const val AS = "pt_asr";  private const val MG = "pt_maghrib"; private const val IS = "pt_isha"
 
     fun saveTimes(ctx: Context, t: PrayerTimesUtc, blocking: Boolean = false) =
         sp(ctx).edit(commit = blocking) {
             putLong(FJ, t.fajr)
+            putLong(SN, t.sunrise)
             putLong(DH, t.dhuhr)
             putLong(AS, t.asr)
             putLong(MG, t.maghrib)
@@ -50,6 +51,7 @@ object Prefs {
         if (!sp.contains(FJ)) return null
         PrayerTimesUtc(
             sp.getLong(FJ, 0L),
+            sp.getLong(SN, 0L),
             sp.getLong(DH, 0L),
             sp.getLong(AS, 0L),
             sp.getLong(MG, 0L),
