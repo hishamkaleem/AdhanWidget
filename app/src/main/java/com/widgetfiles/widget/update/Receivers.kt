@@ -1,5 +1,6 @@
 package com.widgetfiles.widget.update
 
+import android.app.KeyguardManager
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
@@ -9,6 +10,67 @@ import com.widgetfiles.widget.location.Prefs
 import com.widgetfiles.widget.location.Prefs.PrayerTimesUtc
 import com.widgetfiles.widget.location.LocationRepo
 import kotlinx.coroutines.*
+
+class MinuteTickReceiver : BroadcastReceiver() {
+    override fun onReceive(context: Context, intent: Intent?) {
+        if (intent?.action != MinuteTicker.ACTION_MINUTE_TICK) return
+        val app = context.applicationContext
+
+        val pending = goAsync()
+        CoroutineScope(SupervisorJob() + Dispatchers.Default).launch {
+            try {
+                val mgr = GlanceAppWidgetManager(app)
+                val ids = mgr.getGlanceIds(MyAppWidget::class.java)
+                val widget = MyAppWidget()
+                ids.forEach { widget.update(app, it) }
+            } finally {
+                MinuteTicker.scheduleNext(app)
+                pending.finish()
+            }
+        }
+    }
+}
+
+class UserPresenceReceiver : BroadcastReceiver() {
+    override fun onReceive(context: Context, intent: Intent) {
+        val app = context.applicationContext
+        val action = intent.action ?: return
+
+        fun refreshWidgetNow() {
+            val pending = goAsync()
+            CoroutineScope(SupervisorJob() + Dispatchers.Default).launch {
+                try {
+                    val mgr = GlanceAppWidgetManager(app)
+                    val ids = mgr.getGlanceIds(MyAppWidget::class.java)
+                    val widget = MyAppWidget()
+                    ids.forEach { widget.update(app, it) }
+                } finally {
+                    pending.finish()
+                }
+            }
+        }
+
+        when (action) {
+            Intent.ACTION_USER_PRESENT -> {
+                refreshWidgetNow()
+                MinuteTicker.nudgeNowAndScheduleNext(app)
+            }
+
+            Intent.ACTION_SCREEN_ON -> {
+                val km = app.getSystemService(KeyguardManager::class.java)
+                val isLocked = km?.isKeyguardLocked == true
+                if (!isLocked) {
+                    refreshWidgetNow()
+                    MinuteTicker.nudgeNowAndScheduleNext(app)
+                }
+            }
+
+            Intent.ACTION_SCREEN_OFF -> {
+                MinuteTicker.cancel(app)
+            }
+        }
+    }
+}
 
 class DailyRefreshReceiver : BroadcastReceiver() {
 

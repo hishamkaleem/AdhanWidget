@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!-- Permissions -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM"/>
@@ -9,6 +8,7 @@
 
     <application
         android:allowBackup="true"
+        android:fullBackupContent="@xml/backup_rules"
         android:label="Adhan Widget"
         android:supportsRtl="true"
         android:icon="@mipmap/ic_launcher"
@@ -23,10 +23,10 @@
             </intent-filter>
         </activity>
 
-        <!-- Glance AppWidget provider -->
+
         <receiver
             android:name="com.widgetfiles.widget.MyAppWidgetReceiver"
-            android:exported="false">
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
             </intent-filter>
@@ -35,7 +35,6 @@
                 android:resource="@xml/my_app_widget_info"/>
         </receiver>
 
-        <!-- Minute tick -->
         <receiver
             android:name="com.widgetfiles.widget.update.MinuteTickReceiver"
             android:exported="false">
@@ -44,10 +43,9 @@
             </intent-filter>
         </receiver>
 
-        <!-- Daily refresh + time changes -->
         <receiver
             android:name="com.widgetfiles.widget.update.DailyRefreshReceiver"
-            android:exported="false">
+            android:exported="true">
             <intent-filter>
                 <action android:name="com.widgetfiles.widget.ACTION_DAILY_REFRESH"/>
                 <action android:name="android.intent.action.TIME_SET"/>
@@ -56,12 +54,21 @@
             </intent-filter>
         </receiver>
 
-        <!-- Re-schedule alarms after reboot -->
         <receiver
             android:name="com.widgetfiles.widget.update.BootReceiver"
-            android:exported="false">
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+
+        <receiver
+            android:name="com.widgetfiles.widget.update.UserPresenceReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="android.intent.action.SCREEN_ON"/>
+                <action android:name="android.intent.action.SCREEN_OFF"/>
             </intent-filter>
         </receiver>
 

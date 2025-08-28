@@ -8,3 +8,8 @@ data class PrayerTimes(
     val maghrib: Long,
     val isha: Long
 )
+data class PrayerDisplay(
+    val prayerName: String,
+    val timeRemaining: String,
+    val bgColor: Int
+)

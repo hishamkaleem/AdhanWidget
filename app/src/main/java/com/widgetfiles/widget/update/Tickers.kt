@@ -4,7 +4,42 @@ import android.app.AlarmManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
+import androidx.core.app.AlarmManagerCompat
 import java.util.Calendar
+
+object MinuteTicker {
+    const val ACTION_MINUTE_TICK = "com.widgetfiles.widget.ACTION_MINUTE_TICK"
+    private const val REQ_CODE = 1001
+
+    private fun intent(ctx: Context) =
+        Intent(ctx, MinuteTickReceiver::class.java).setAction(ACTION_MINUTE_TICK)
+
+    fun scheduleNext(context: Context): Long {
+        val am = context.getSystemService(AlarmManager::class.java)
+        val now = System.currentTimeMillis()
+        val next = (now / 60_000L + 1) * 60_000L
+        val pi = PendingIntent.getBroadcast(
+            context, REQ_CODE, intent(context),
+            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+        )
+        AlarmManagerCompat.setExactAndAllowWhileIdle(am, AlarmManager.RTC_WAKEUP, next, pi)
+        return next
+    }
+
+    fun nudgeNowAndScheduleNext(context: Context) {
+        context.sendBroadcast(intent(context))
+        scheduleNext(context)
+    }
+
+    fun cancel(context: Context) {
+        val am = context.getSystemService(AlarmManager::class.java)
+        val pi = PendingIntent.getBroadcast(
+            context, REQ_CODE, intent(context),
+            PendingIntent.FLAG_NO_CREATE or PendingIntent.FLAG_IMMUTABLE
+        )
+        if (pi != null) am.cancel(pi)
+    }
+}
 
 object DailyRefresher {
     const val ACTION = "com.widgetfiles.widget.ACTION_DAILY_REFRESH"
@@ -59,3 +94,4 @@ object DailyRefresher {
         am.cancel(pendingIntent(ctx))
     }
 }
+
