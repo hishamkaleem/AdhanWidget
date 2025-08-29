@@ -137,8 +137,8 @@ class MyAppWidget : GlanceAppWidget() {
                     provider = ImageProvider(getPrayerIcon(display.prayerName)),
                     contentDescription = "${display.prayerName} icon",
                     modifier = GlanceModifier
-                        .size(70.dp)
-                        .padding(top = 10.dp, end = 10.dp)
+                        .size(73.dp)
+                        .padding(top = 7.dp, end = 10.dp)
                         .clickable(onClick = actionRunCallback<ToggleCompactAction>())
                 )
 
@@ -146,7 +146,7 @@ class MyAppWidget : GlanceAppWidget() {
                     text = display.prayerName,
                     style = TextStyle(
                         color = DayNightColorProvider(day = Color.White, night = Color.White),
-                        fontSize = 27.sp,
+                        fontSize = 30.sp,
                         fontWeight = FontWeight.Bold
                     ),
                     modifier = GlanceModifier.padding(end = 12.dp)
@@ -159,23 +159,24 @@ class MyAppWidget : GlanceAppWidget() {
                             day = Color.Black,
                             night = Color.Black
                         ),
-                        fontSize = 27.sp,
+                        fontSize = 29.sp,
                         fontWeight = FontWeight.Bold
                     ),
                     modifier = GlanceModifier.padding(end = 12.dp)
                 )
 
+                Spacer(modifier = GlanceModifier.defaultWeight())
+
                 Image(
                     provider = ImageProvider(if (vibOn) R.drawable.vibe_on else R.drawable.vibe_off),
                     contentDescription = if (vibOn) "Vibration ON" else "Vibration OFF",
                     modifier = GlanceModifier
-                        .size(27.dp)
+                        .size(32.dp)
                         .clickable(onClick = actionRunCallback<ToggleVibrateAction>())
                 )
             }
         }
     }
-
 
 
     //************************************************************************************************
