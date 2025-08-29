@@ -69,6 +69,8 @@ class MainActivity : ComponentActivity() {
         Prefs.saveLocation(appCtx, lat, lng, blocking = true)
         Prefs.saveTimes(appCtx, Prefs.PrayerTimesUtc(arr.fajr, arr.sunrise,arr.dhuhr, arr.asr, arr.maghrib, arr.isha))
         Prefs.markToday(appCtx)
+        com.widgetfiles.widget.vibrate.PrayerAlarmScheduler.cancelAll(appCtx)
+        com.widgetfiles.widget.vibrate.PrayerAlarmScheduler.scheduleSixFromPrefs(appCtx)
 
         val mgr = GlanceAppWidgetManager(appCtx)
         val ids = mgr.getGlanceIds(MyAppWidget::class.java)

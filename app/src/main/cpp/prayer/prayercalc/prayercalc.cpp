@@ -83,32 +83,31 @@ namespace isna{
 
     PrayerTimes computeUTC(int year, int month, int day,
                            double latDeg, double lngDeg,
-                           const Config& cfg)
-    {
+                           const Config& cfg) {
         const int64_t baseUtcMs = utc_midnight_ms(year, month, day);
 
-        double fajr=5, sunrise=6, dhuhr=12, asr=13, sunset=18, maghrib=18, isha=18;
+        double fajr = 5, sunrise = 6, dhuhr = 12, asr = 13, sunset = 18, maghrib = 18, isha = 18;
 
-        fajr    = angle_time(cfg.fajrAngleDeg, fajr,   -1, baseUtcMs, latDeg, lngDeg);
-        sunrise = angle_time(cfg.horizonDeg,   sunrise, -1, baseUtcMs, latDeg, lngDeg);
-        dhuhr   = midday(dhuhr, baseUtcMs, lngDeg);
+        fajr = angle_time(cfg.fajrAngleDeg, fajr, -1, baseUtcMs, latDeg, lngDeg);
+        sunrise = angle_time(cfg.horizonDeg, sunrise, -1, baseUtcMs, latDeg, lngDeg);
+        dhuhr = midday(dhuhr, baseUtcMs, lngDeg);
         {
             const double a = asr_angle(cfg.asrShadow, asr, baseUtcMs, latDeg, lngDeg);
             asr = angle_time(a, asr, +1, baseUtcMs, latDeg, lngDeg);
         }
-        sunset  = angle_time(cfg.horizonDeg,   sunset, +1, baseUtcMs, latDeg, lngDeg);
+        sunset = angle_time(cfg.horizonDeg, sunset, +1, baseUtcMs, latDeg, lngDeg);
         maghrib = sunset;
-        isha    = angle_time(cfg.ishaAngleDeg, isha,   +1, baseUtcMs, latDeg, lngDeg);
+        isha = angle_time(cfg.ishaAngleDeg, isha, +1, baseUtcMs, latDeg, lngDeg);
 
         high_lat_adjust(sunrise, sunset, fajr, isha, maghrib);
 
-        auto toUtcMs = [&](double hour)->int64_t {
+        auto toUtcMs = [&](double hour) -> int64_t {
             return hour_to_epoch_ms(hour, baseUtcMs, lngDeg);
         };
 
         return PrayerTimes{
-                toUtcMs(fajr), toUtcMs(sunrise),toUtcMs(dhuhr), toUtcMs(asr),
-                toUtcMs(maghrib), toUtcMs(isha)
+               toUtcMs(fajr), toUtcMs(sunrise),toUtcMs(dhuhr), toUtcMs(asr),
+               toUtcMs(maghrib), toUtcMs(isha)
         };
     }
 }

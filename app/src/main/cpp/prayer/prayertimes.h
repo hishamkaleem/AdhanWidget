@@ -19,7 +19,6 @@ namespace disp {
         const int bgColor;
     };
 
-
     PrayerDisplay widgetInfo(PrayerTimes pt);
 
 } // namespace disp

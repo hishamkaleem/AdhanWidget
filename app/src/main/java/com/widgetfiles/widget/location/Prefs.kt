@@ -7,6 +7,14 @@ object Prefs {
     private const val N = "adhan_prefs"
     private const val LAT = "lat"; private const val LNG = "lng"; private const val YMD = "ymd"
 
+    private const val VIB_ON = "vibrate_on"
+
+    fun isVibrateOn(ctx: Context): Boolean =
+        sp(ctx).getBoolean(VIB_ON, true)
+
+    fun setVibrate(ctx: Context, on: Boolean, blocking: Boolean = false) =
+        sp(ctx).edit(commit = blocking) { putBoolean(VIB_ON, on) }
+
     private fun sp(ctx: Context) =
         ctx.applicationContext.getSharedPreferences(N, Context.MODE_PRIVATE)
 

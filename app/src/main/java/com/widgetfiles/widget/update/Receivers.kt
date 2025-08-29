@@ -114,7 +114,13 @@ class DailyRefreshReceiver : BroadcastReceiver() {
                             blocking = true
                         )
                         Prefs.markToday(appCtx, blocking = true)
+                        com.widgetfiles.widget.vibrate.PrayerAlarmScheduler.cancelAll(appCtx)
+                        com.widgetfiles.widget.vibrate.PrayerAlarmScheduler.scheduleSixFromPrefs(appCtx)
                     }
+                }
+                else {
+                    com.widgetfiles.widget.vibrate.PrayerAlarmScheduler.cancelAll(appCtx)
+                    com.widgetfiles.widget.vibrate.PrayerAlarmScheduler.scheduleSixFromPrefs(appCtx)
                 }
 
                 val mgr = GlanceAppWidgetManager(appCtx)

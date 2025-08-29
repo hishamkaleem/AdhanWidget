@@ -33,6 +33,7 @@ import androidx.glance.appwidget.action.actionRunCallback
 import androidx.glance.GlanceId
 import androidx.glance.appwidget.state.updateAppWidgetState
 import androidx.glance.currentState
+import com.widgetfiles.widget.vibrate.ToggleVibrateAction
 
 class MyAppWidget : GlanceAppWidget() {
 
@@ -40,6 +41,7 @@ class MyAppWidget : GlanceAppWidget() {
         provideContent {
             val prefs = currentState<Preferences>()
             val compact = prefs[WidgetKeys.compact] ?: false
+            val vibOn  = prefs[WidgetKeys.vibrate] ?: Prefs.isVibrateOn(context)
 
             val cached = Prefs.readTimes(context)
             if (cached == null) {
@@ -66,7 +68,7 @@ class MyAppWidget : GlanceAppWidget() {
                         isha = cached.isha
                     )
                 } else {
-                    WidgetUI(display)
+                    WidgetUI(display, vibOn)
                 }
             }
         }
@@ -117,7 +119,7 @@ class MyAppWidget : GlanceAppWidget() {
     }
 
     @Composable
-    private fun WidgetUI(display: PrayerDisplay) {
+    private fun WidgetUI(display: PrayerDisplay, vibOn: Boolean) {
         Column(
             modifier = GlanceModifier
                 .fillMaxSize()
@@ -135,7 +137,7 @@ class MyAppWidget : GlanceAppWidget() {
                     provider = ImageProvider(getPrayerIcon(display.prayerName)),
                     contentDescription = "${display.prayerName} icon",
                     modifier = GlanceModifier
-                        .size(90.dp)
+                        .size(70.dp)
                         .padding(top = 10.dp, end = 10.dp)
                         .clickable(onClick = actionRunCallback<ToggleCompactAction>())
                 )
@@ -144,7 +146,7 @@ class MyAppWidget : GlanceAppWidget() {
                     text = display.prayerName,
                     style = TextStyle(
                         color = DayNightColorProvider(day = Color.White, night = Color.White),
-                        fontSize = 30.sp,
+                        fontSize = 27.sp,
                         fontWeight = FontWeight.Bold
                     ),
                     modifier = GlanceModifier.padding(end = 12.dp)
@@ -157,10 +159,18 @@ class MyAppWidget : GlanceAppWidget() {
                             day = Color.Black,
                             night = Color.Black
                         ),
-                        fontSize = 28.sp,
+                        fontSize = 27.sp,
                         fontWeight = FontWeight.Bold
                     ),
                     modifier = GlanceModifier.padding(end = 12.dp)
+                )
+
+                Image(
+                    provider = ImageProvider(if (vibOn) R.drawable.vibe_on else R.drawable.vibe_off),
+                    contentDescription = if (vibOn) "Vibration ON" else "Vibration OFF",
+                    modifier = GlanceModifier
+                        .size(27.dp)
+                        .clickable(onClick = actionRunCallback<ToggleVibrateAction>())
                 )
             }
         }
@@ -246,9 +256,11 @@ class MyAppWidget : GlanceAppWidget() {
         df.timeZone = java.util.TimeZone.getDefault()
         return df.format(java.util.Date(epochMs))
     }
+
 }
 object WidgetKeys {
     val compact = booleanPreferencesKey("compact")
+    val vibrate = booleanPreferencesKey("vibrate")
 }
 
 class ToggleCompactAction : ActionCallback {
