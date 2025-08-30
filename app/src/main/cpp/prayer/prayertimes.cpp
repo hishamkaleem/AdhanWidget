@@ -15,7 +15,7 @@ namespace disp {
     }
 
     static inline std::string formatDiff(int64_t diffMs) {
-        if (diffMs <= 59'999) return "FINISHED";
+        if (diffMs <= 59'999) return "< 1m";
         int hours = int(diffMs / 3'600'000);
         int mins  = int((diffMs % 3'600'000) / 60'000);
         std::ostringstream oss; oss << hours << "h " << mins << "m";
