@@ -80,6 +80,10 @@ dependencies {
     implementation("androidx.glance:glance-appwidget:1.1.0")
     implementation("androidx.glance:glance:1.0.0")
 
+    implementation("androidx.fragment:fragment-ktx:1.3.0")
+    implementation("androidx.activity:activity-ktx:1.3.0")
+    implementation("androidx.appcompat:appcompat:1.3.0")
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
